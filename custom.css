@@ -291,6 +291,7 @@ body { background: #0a0416 !important; }
 .lwd-item .lwd-ok.pending { color: #fbbf24 !important; font-weight: 600 !important; }
 @media (max-width: 768px) {
   .lwd-widget { padding: 12px 10px; }
+  .lwd-list .lwd-item:nth-child(n+5) { display: none !important; }
   .lwd-item {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto !important;

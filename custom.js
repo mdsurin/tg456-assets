@@ -106,12 +106,18 @@
     { n:'ไทยพาณิชย์', img:'scb', bg:'#4a2680' },
     { n:'กรุงเทพ', img:'bbl', bg:'#1e4788' },
     { n:'กรุงไทย', img:'ktb', bg:'#00a3e0' },
+    { n:'กรุงศรี', img:'bay', bg:'#f7a600' },
+    { n:'ทหารไทยธนชาต', img:'ttb', bg:'#0056a4' },
+    { n:'ออมสิน', img:'gsb', bg:'#e91b83' },
+    { n:'ธ.ก.ส.', img:'baac', bg:'#00854a' },
+    { n:'ซีไอเอ็มบี', img:'cimb', bg:'#a02020' },
+    { n:'ยูโอบี', img:'uob', bg:'#1a4a8a' },
     { n:'ทรูวอลเล็ต', img:'true', bg:'#f37021' }
   ];
   function pad(n,len){ var s=String(n); while(s.length<len) s='0'+s; return s; }
   function rndUser(){ return 'bqp'+pad(Math.floor(Math.random()*1e9), 9); }
   function rndPhone(){ return '08'+pad(Math.floor(Math.random()*10),1)+'-***-'+pad(Math.floor(Math.random()*10000),4); }
-  function rndAmt(bank){ var max = bank && bank.img==='true' ? 49500 : 99500; return 500+Math.floor(Math.random()*max); }
+  function rndAmt(bank){ var max = bank && bank.img==='true' ? 29500 : 99500; return 500+Math.floor(Math.random()*max); }
   function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function mkItem(){
     var b = BANKS[Math.floor(Math.random()*BANKS.length)];

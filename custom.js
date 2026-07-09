@@ -182,7 +182,7 @@ var THAI_LATEST = { date:'16 ส.ค. 68', prize1:'751495', front3:['001','980']
   function build(){
     if(location.pathname !== '/' && location.pathname !== '') return;
     if(document.querySelector('.lot-widget')) return;
-    var host = document.querySelector('.lwd-widget') || document.querySelector('.top-block') || document.querySelector('.main-content');
+    var host = document.querySelector('.sp-widget') || document.querySelector('.promotion-block') || document.querySelector('.lwd-widget') || document.querySelector('.top-block') || document.querySelector('.main-content');
     if(!host){ setTimeout(build, 1000); return; }
     var w = document.createElement('div');
     w.className = 'lot-widget';
@@ -367,7 +367,7 @@ var THAI_LATEST = { date:'16 ส.ค. 68', prize1:'751495', front3:['001','980']
   function build(){
     if(location.pathname !== '/' && location.pathname !== '') return;
     if(document.querySelector('.sp-widget')) return;
-    var host = document.querySelector('.lot-widget') || document.querySelector('.lwd-widget') || document.querySelector('.top-block');
+    var host = document.querySelector('.promotion-block') || document.querySelector('.lwd-widget') || document.querySelector('.top-block');
     if(!host){ setTimeout(build, 1500); return; }
     var w = document.createElement('div');
     w.className = 'sp-widget';

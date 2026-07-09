@@ -13,9 +13,10 @@ body { background: #0a0416 !important; }
 
 /* ===== NAVBAR & LOGO ===== */
 .navbar { background: linear-gradient(180deg, rgba(74,20,132,0.98), rgba(60,15,110,0.95)) !important; }
-.main-logo { max-height: 140px !important; }
-@media (max-width: 768px) { .main-logo { max-height: 110px !important; } }
-@media (max-width: 480px) { .main-logo { max-height: 90px !important; } }
+.main-logo { max-height: 200px !important; }
+.main-logo img { max-height: 200px !important; height: 200px !important; width: auto !important; object-fit: contain !important; }
+@media (max-width: 768px) { .main-logo, .main-logo img { max-height: 160px !important; height: 160px !important; } }
+@media (max-width: 480px) { .main-logo, .main-logo img { max-height: 130px !important; height: 130px !important; } }
 
 /* ===== BANK ICONS (footer) - keep original colors ===== */
 .footer-ic-bank { filter: none !important; opacity: 0.95 !important; transition: opacity 0.3s, transform 0.3s; }

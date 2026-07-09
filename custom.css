@@ -493,13 +493,19 @@ body { background: #0a0416 !important; }
   border: 1px solid rgba(212,175,55,0.3);
 }
 @media (max-width: 768px) {
-  .tg-rank-widget { padding: 14px 10px 16px; }
-  .tg-rank-list { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tg-rank-widget { padding: 12px 6px 14px; }
+  .tg-rank-list { grid-template-columns: repeat(6, 1fr); gap: 4px; }
   .tg-rank-title { font-size: 17px; letter-spacing: 1px; }
-  .tg-rank-icon { width: 60px; height: 60px; }
+  .tg-rank-item { padding: 8px 2px 6px; border-radius: 8px; }
+  .tg-rank-icon { width: 42px; height: 42px; margin-bottom: 4px; }
   .tg-rank-hdr::before, .tg-rank-hdr::after { display: none; }
-  .tg-rank-name { font-size: 12.5px; }
-  .tg-rank-thr { font-size: 10px; padding: 2px 6px; }
+  .tg-rank-name { font-size: 10px; margin-bottom: 2px; letter-spacing: 0; }
+  .tg-rank-thr { font-size: 8.5px; padding: 1px 4px; border-width: 0.5px; }
+}
+@media (max-width: 380px) {
+  .tg-rank-icon { width: 36px; height: 36px; }
+  .tg-rank-name { font-size: 9px; }
+  .tg-rank-thr { font-size: 8px; padding: 1px 3px; }
 }
 
 /* ===== JACKPOT OVERLAY ON GAME CARDS (bottom-right corner) ===== */

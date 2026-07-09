@@ -13,10 +13,11 @@ body { background: #0a0416 !important; }
 
 /* ===== NAVBAR & LOGO ===== */
 .navbar { background: linear-gradient(180deg, rgba(74,20,132,0.98), rgba(60,15,110,0.95)) !important; }
-.main-logo { max-height: 200px !important; }
-.main-logo img { max-height: 200px !important; height: 200px !important; width: auto !important; object-fit: contain !important; }
-@media (max-width: 768px) { .main-logo, .main-logo img { max-height: 160px !important; height: 160px !important; } }
-@media (max-width: 480px) { .main-logo, .main-logo img { max-height: 130px !important; height: 130px !important; } }
+/* ===== LOGO SIZE + LEFT ALIGNMENT ===== */
+#main-logo, img#main-logo, .navbar-brand img, .main-logo img { height: 130px !important; max-height: 200px !important; width: auto !important; object-fit: contain !important; }
+.navbar-brand, a.navbar-brand, a.main-logo-member, .main-logo-member { margin-right: auto !important; margin-left: 20px !important; height: auto !important; max-height: none !important; width: auto !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; align-self: center !important; order: -1 !important; }
+@media (max-width: 768px) { #main-logo, img#main-logo, .navbar-brand img, .main-logo img { height: 90px !important; } .navbar-brand, a.navbar-brand, a.main-logo-member { margin-left: 10px !important; order: -1 !important; } }
+@media (max-width: 480px) { #main-logo, img#main-logo, .navbar-brand img, .main-logo img { height: 60px !important; } .navbar-brand, a.navbar-brand, a.main-logo-member { position: absolute !important; left: 55px !important; top: 6px !important; margin: 0 !important; z-index: 10 !important; } }
 
 /* ===== BANK ICONS (footer) - keep original colors ===== */
 .footer-ic-bank { filter: none !important; opacity: 0.95 !important; transition: opacity 0.3s, transform 0.3s; }

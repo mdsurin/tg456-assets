@@ -386,9 +386,8 @@ var THAI_LATEST = { date:'16 ส.ค. 68', prize1:'751495', front3:['001','980']
     return el;
   }
   function build(){
-    if(location.pathname!=='/' && location.pathname!=='')return;
     if(document.querySelector('.jbs-widget'))return;
-    var host=document.querySelector('.new-game-block')||document.querySelector('.game-type-block')||document.querySelector('.main-content');
+    var host=document.querySelector('.new-game-block')||document.querySelector('.member__games_entrance')||document.querySelector('.game-type-block')||document.querySelector('.entrance_games_theme')||document.querySelector('.main-content')||document.querySelector('main');
     if(!host){setTimeout(build,1000);return;}
     var w=document.createElement('div');
     w.className='jbs-widget';

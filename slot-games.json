@@ -18136,225 +18136,72 @@
       "games": []
     },
     "MIM": {
-      "total": 42,
-      "games": [
-        {
-          "title": "",
-          "slug": "fortune-gems",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/fortune-gems-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "four-spirits",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/four-spirits-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "champion-league",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/champion-league-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "tiger-gold",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/tiger-gold-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "fruit-opolis",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/fruit-opolis-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "money-heist",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/money-heist-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "super-all-stars",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/super-all-stars-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "jokers-luck-deluxe",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/jokers-luck-deluxe-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "candy-boom",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/candy-boom-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "league-of-legends",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/league-of-legends-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "minion-rush",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/minion-rush-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "gods-of-olympus",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/gods-of-olympus-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "jokers-luck",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/jokers-luck-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "buffalo-king",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/buffalo-king-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "plinko",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/plinko-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "squid-game",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/squid-game-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "aztec-gold",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/aztec-gold-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "avengers-infinity-war",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/avengers-infinity-war-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "ancient-temple",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/ancient-temple-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "caishen",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/caishen-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "spartan-warrior",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/spartan-warrior-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "ancient-egypt",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/ancient-egypt-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "mega777",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/mega777-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "aztec-king",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/aztec-king-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "monkey-king",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/monkey-king-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "paradise-beach",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/paradise-beach-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "treasure-kingdom",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/treasure-kingdom-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "boss-casino",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/boss-casino-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "power-of-gods",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/power-of-gods-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "summer-kool",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/summer-kool-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "happy-new-year",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/happy-new-year-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "plants-vs-zombies",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/plants-vs-zombies-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "diamond-rush",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/diamond-rush-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "little-witch-girl",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/little-witch-girl-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "lucky-new-year",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/lucky-new-year-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "fortune-erawan",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/fortune-erawan-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "dragon-riches",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/dragon-riches-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "cleopatra",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/cleopatra-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "fortune-caishen",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/fortune-caishen-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "labubu",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/labubu-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "nezha",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/nezha-h.webp"
-        },
-        {
-          "title": "",
-          "slug": "mahjong-caishen",
-          "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/MIM/mahjong-caishen-h.webp"
-        }
-      ]
+      "total": 0,
+      "games": []
     },
     "PNG": {
       "total": 0,
       "games": []
+    },
+    "SBOS": {
+      "total": 0,
+      "games": []
+    },
+    "NETE": {
+      "total": 0,
+      "games": []
+    },
+    "RTG": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "VPO": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "BIGT": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "BPS": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "JL": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "SNG": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "AMG": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "BSG": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "BGM": {
+      "total": 0,
+      "games": [],
+      "skipped": true
+    },
+    "IDNS": {
+      "total": 0,
+      "games": [],
+      "skipped": true
     }
   },
-  "totalProviders": 72,
-  "totalGames": 3599
+  "totalProviders": 84,
+  "totalGames": 3557
 }

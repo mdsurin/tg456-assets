@@ -366,39 +366,109 @@ body { background: #0a0416 !important; }
   font-weight: 900; font-size: 13px;
 }
 
-/* ===== RANKING WIDGET (with sprite) ===== */
+/* ===== RANKING WIDGET — PREMIUM v2 ===== */
 .tg-rank-widget {
-  background: linear-gradient(rgb(58,14,110) 0%, rgb(26,5,48) 100%);
-  border: 1px solid rgba(212,175,55,0.5);
+  background: linear-gradient(135deg, rgba(58,14,110,0.95) 0%, rgba(26,5,48,0.98) 50%, rgba(74,20,132,0.9) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 18px;
+  padding: 18px 16px 20px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(212,175,55,0.15), 0 0 60px rgba(168,85,247,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+.tg-rank-widget::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ffd77a 0%, #d4af37 25%, #fff5c9 50%, #ffd77a 75%, #d4af37 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: rankBorder 4s linear infinite;
+  pointer-events: none;
+}
+@keyframes rankBorder { to { filter: hue-rotate(360deg); } }
+.tg-rank-widget::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top, rgba(255,215,120,0.15) 0%, transparent 60%);
+  pointer-events: none;
 }
 .tg-rank-hdr {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0));
-  padding-bottom: 10px; margin-bottom: 12px;
-  border-bottom: 1px solid rgba(212,175,55,0.3);
+  background: none;
+  padding-bottom: 14px; margin-bottom: 16px;
+  border-bottom: 1px solid rgba(212,175,55,0.4);
+  text-align: center;
+  position: relative;
 }
+.tg-rank-hdr::before, .tg-rank-hdr::after {
+  content: '★';
+  position: absolute; top: 4px;
+  color: #ffd77a; font-size: 14px;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 8px #ffd77a);
+}
+.tg-rank-hdr::before { left: 20%; }
+.tg-rank-hdr::after { right: 20%; }
 .tg-rank-title {
   background: linear-gradient(120deg, #fff5c9 0%, #ffd77a 25%, #fff8d6 45%, #e5b74a 65%, #fff8d6 85%, #ffd77a 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Chonburi', 'Cinzel', serif;
-  font-size: 20px; text-align: center; margin: 0;
-  letter-spacing: 1px;
+  font-size: 22px; text-align: center; margin: 0;
+  letter-spacing: 2px;
+  animation: rankShimmer 3s linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
-.tg-rank-list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+@keyframes rankShimmer { to { background-position: 200% center; } }
+.tg-rank-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
 .tg-rank-item {
-  text-align: center; padding: 10px 4px;
-  background: rgba(20,8,40,0.4);
-  border: 1px solid rgba(212,175,55,0.3);
-  border-radius: 10px;
-  transition: transform 0.3s;
+  text-align: center; padding: 12px 6px 10px;
+  background: linear-gradient(180deg, rgba(30,15,60,0.6) 0%, rgba(10,5,25,0.4) 100%);
+  border: 1.5px solid rgba(212,175,55,0.4);
+  border-radius: 12px;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
-.tg-rank-item:hover { transform: translateY(-4px); }
+.tg-rank-item::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at top, transparent 40%, currentColor 100%);
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.tg-rank-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.5), 0 0 30px currentColor;
+  border-color: currentColor;
+}
+.tg-rank-item:hover::before { opacity: 0.2; }
+.tg-rank-item:nth-child(1) { color: #cd7f32; }
+.tg-rank-item:nth-child(2) { color: #d0d0d0; }
+.tg-rank-item:nth-child(3) { color: #ffd700; }
+.tg-rank-item:nth-child(4) { color: #d946ef; }
+.tg-rank-item:nth-child(5) { color: #00e6ff; }
+.tg-rank-item:nth-child(6) { color: #ff6b6b; }
 .tg-rank-icon {
-  width: 80px; height: 80px; margin: 0 auto 6px;
+  width: 80px; height: 80px; margin: 0 auto 8px;
   background-image: url('https://member.rm789.online/g_assets/img/site/2026/07/07-20_03_59-ranks-sprite.png');
   background-size: 600% 100%;
   background-repeat: no-repeat;
-  filter: drop-shadow(0 0 8px rgba(255,215,120,0.5));
+  filter: drop-shadow(0 4px 12px rgba(255,215,120,0.4));
+  transition: transform 0.35s;
+}
+.tg-rank-item:hover .tg-rank-icon {
+  transform: scale(1.1) rotate(-3deg);
+  filter: drop-shadow(0 6px 20px currentColor);
 }
 .tg-rank-icon.r0 { background-position: 0 0; }
 .tg-rank-icon.r1 { background-position: 20% 0; }
@@ -406,12 +476,30 @@ body { background: #0a0416 !important; }
 .tg-rank-icon.r3 { background-position: 60% 0; }
 .tg-rank-icon.r4 { background-position: 80% 0; }
 .tg-rank-icon.r5 { background-position: 100% 0; }
-.tg-rank-name { color: #ffd77a; font-weight: 800; font-size: 13px; margin-bottom: 2px; }
-.tg-rank-thr { color: #f5d0fe; font-size: 11px; }
+.tg-rank-name {
+  color: #ffd77a;
+  font-weight: 900; font-size: 14px;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6), 0 0 12px currentColor;
+}
+.tg-rank-thr {
+  color: #f5d0fe; font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 999px;
+  display: inline-block;
+  border: 1px solid rgba(212,175,55,0.3);
+}
 @media (max-width: 768px) {
-  .tg-rank-list { grid-template-columns: repeat(3, 1fr); }
-  .tg-rank-title { font-size: 15px; }
+  .tg-rank-widget { padding: 14px 10px 16px; }
+  .tg-rank-list { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tg-rank-title { font-size: 17px; letter-spacing: 1px; }
   .tg-rank-icon { width: 60px; height: 60px; }
+  .tg-rank-hdr::before, .tg-rank-hdr::after { display: none; }
+  .tg-rank-name { font-size: 12.5px; }
+  .tg-rank-thr { font-size: 10px; padding: 2px 6px; }
 }
 
 /* ===== JACKPOT OVERLAY ON GAME CARDS (bottom-right corner) ===== */

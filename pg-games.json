@@ -1,0 +1,825 @@
+{
+  "provider": "PG Soft",
+  "category": "slot",
+  "code": "PGS",
+  "total": 163,
+  "generated": "2026-07-09T23:16:47.758Z",
+  "imageFormat": "webp 600x380",
+  "games": [
+    {
+      "title": "Honey Trap of Diao Chan",
+      "slug": "honey-trap-of-diao-chan",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/honey-trap-of-diao-chan-h.webp"
+    },
+    {
+      "title": "Fortune Gods",
+      "slug": "fortune-gods",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-gods-h.webp"
+    },
+    {
+      "title": "Win Win Won",
+      "slug": "win-win-won",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/win-win-won-h.webp"
+    },
+    {
+      "title": "Medusa II",
+      "slug": "medusa-ii",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/medusa-ii-h.webp"
+    },
+    {
+      "title": "Tree of Fortune",
+      "slug": "tree-of-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/tree-of-fortune-h.webp"
+    },
+    {
+      "title": "Medusa",
+      "slug": "medusa",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/medusa-h.webp"
+    },
+    {
+      "title": "Plushie Frenzy",
+      "slug": "plushie-frenzy",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/plushie-frenzy-h.webp"
+    },
+    {
+      "title": "Gem Saviour",
+      "slug": "gem-saviour",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/gem-saviour-h.webp"
+    },
+    {
+      "title": "Hood vs Wolf",
+      "slug": "hood-vs-wolf",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/hood-vs-wolf-h.webp"
+    },
+    {
+      "title": "Hot Pot",
+      "slug": "hot-pot",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/hot-pot-h.webp"
+    },
+    {
+      "title": "Dragon Legend",
+      "slug": "dragon-legend",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dragon-legend-h.webp"
+    },
+    {
+      "title": "Mr Hallow-Jackpot!",
+      "slug": "mr-hallow-jackpot",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mr-hallow-jackpot-h.webp"
+    },
+    {
+      "title": "Legend of Hou Yi",
+      "slug": "legend-of-hou-yi",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/legend-of-hou-yi-h.webp"
+    },
+    {
+      "title": "Prosperity Lion",
+      "slug": "prosperity-lion",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/prosperity-lion-h.webp"
+    },
+    {
+      "title": "Hip Hop Panda",
+      "slug": "hip-hop-panda",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/hip-hop-panda-h.webp"
+    },
+    {
+      "title": "Santa's Gift Rush",
+      "slug": "santa-s-gift-rush",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/santa-s-gift-rush-h.webp"
+    },
+    {
+      "title": "Gem Saviour Sword",
+      "slug": "gem-saviour-sword",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/gem-saviour-sword-h.webp"
+    },
+    {
+      "title": "Piggy Gold",
+      "slug": "piggy-gold",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/piggy-gold-h.webp"
+    },
+    {
+      "title": "Symbols of Egypt",
+      "slug": "symbols-of-egypt",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/symbols-of-egypt-h.webp"
+    },
+    {
+      "title": "Emperor's Favour",
+      "slug": "emperor-s-favour",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/emperor-s-favour-h.webp"
+    },
+    {
+      "title": "Ganesha Gold",
+      "slug": "ganesha-gold",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/ganesha-gold-h.webp"
+    },
+    {
+      "title": "Jungle Delight",
+      "slug": "jungle-delight",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/jungle-delight-h.webp"
+    },
+    {
+      "title": "Double Fortune",
+      "slug": "double-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/double-fortune-h.webp"
+    },
+    {
+      "title": "The Great Icescape",
+      "slug": "the-great-icescape",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/the-great-icescape-h.webp"
+    },
+    {
+      "title": "Journey to the Wealth",
+      "slug": "journey-to-the-wealth",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/journey-to-the-wealth-h.webp"
+    },
+    {
+      "title": "Captain's Bounty",
+      "slug": "captain-s-bounty",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/captain-s-bounty-h.webp"
+    },
+    {
+      "title": "Leprechaun Riches",
+      "slug": "leprechaun-riches",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/leprechaun-riches-h.webp"
+    },
+    {
+      "title": "Flirting Scholar",
+      "slug": "flirting-scholar",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/flirting-scholar-h.webp"
+    },
+    {
+      "title": "Ninja vs Samurai",
+      "slug": "ninja-vs-samurai",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/ninja-vs-samurai-h.webp"
+    },
+    {
+      "title": "Muay Thai Champion",
+      "slug": "muay-thai-champion",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/muay-thai-champion-h.webp"
+    },
+    {
+      "title": "Dragon Tiger Luck",
+      "slug": "dragon-tiger-luck",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dragon-tiger-luck-h.webp"
+    },
+    {
+      "title": "Mahjong Ways",
+      "slug": "mahjong-ways",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mahjong-ways-h.webp"
+    },
+    {
+      "title": "Dragon Hatch",
+      "slug": "dragon-hatch",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dragon-hatch-h.webp"
+    },
+    {
+      "title": "Fortune Mouse",
+      "slug": "fortune-mouse",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-mouse-h.webp"
+    },
+    {
+      "title": "Reel Love",
+      "slug": "reel-love",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/reel-love-h.webp"
+    },
+    {
+      "title": "Gem Saviour Conquest",
+      "slug": "gem-saviour-conquest",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/gem-saviour-conquest-h.webp"
+    },
+    {
+      "title": "Shaolin Soccer",
+      "slug": "shaolin-soccer",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/shaolin-soccer-h.webp"
+    },
+    {
+      "title": "Caishen Wins",
+      "slug": "caishen-wins",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/caishen-wins-h.webp"
+    },
+    {
+      "title": "Candy Burst",
+      "slug": "candy-burst",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/candy-burst-h.webp"
+    },
+    {
+      "title": "Bikini Paradise",
+      "slug": "bikini-paradise",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/bikini-paradise-h.webp"
+    },
+    {
+      "title": "Mahjong Ways 2",
+      "slug": "mahjong-ways-2",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mahjong-ways-2-h.webp"
+    },
+    {
+      "title": "Egypt's Book of Mystery",
+      "slug": "egypt-s-book-of-mystery",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/egypt-s-book-of-mystery-h.webp"
+    },
+    {
+      "title": "Ganesha Fortune",
+      "slug": "ganesha-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/ganesha-fortune-h.webp"
+    },
+    {
+      "title": "Phoenix Rises",
+      "slug": "phoenix-rises",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/phoenix-rises-h.webp"
+    },
+    {
+      "title": "Dreams of Macau",
+      "slug": "dreams-of-macau",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dreams-of-macau-h.webp"
+    },
+    {
+      "title": "Wild Fireworks",
+      "slug": "wild-fireworks",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wild-fireworks-h.webp"
+    },
+    {
+      "title": "Genie's 3 Wishes",
+      "slug": "genie-s-3-wishes",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/genie-s-3-wishes-h.webp"
+    },
+    {
+      "title": "Treasures of Aztec",
+      "slug": "treasures-of-aztec",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/treasures-of-aztec-h.webp"
+    },
+    {
+      "title": "Circus Delight",
+      "slug": "circus-delight",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/circus-delight-h.webp"
+    },
+    {
+      "title": "Thai River Wonders",
+      "slug": "thai-river-wonders",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/thai-river-wonders-h.webp"
+    },
+    {
+      "title": "Secret of Cleopatra",
+      "slug": "secret-of-cleopatra",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/secret-of-cleopatra-h.webp"
+    },
+    {
+      "title": "Vampire's Charm",
+      "slug": "vampire-s-charm",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/vampire-s-charm-h.webp"
+    },
+    {
+      "title": "Queen of Bounty",
+      "slug": "queen-of-bounty",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/queen-of-bounty-h.webp"
+    },
+    {
+      "title": "Jewels of Prosperity",
+      "slug": "jewels-of-prosperity",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/jewels-of-prosperity-h.webp"
+    },
+    {
+      "title": "Lucky Neko",
+      "slug": "lucky-neko",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/lucky-neko-h.webp"
+    },
+    {
+      "title": "Jack Frost's Winter",
+      "slug": "jack-frost-s-winter",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/jack-frost-s-winter-h.webp"
+    },
+    {
+      "title": "Galactic Gems",
+      "slug": "galactic-gems",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/galactic-gems-h.webp"
+    },
+    {
+      "title": "Guardians of Ice and Fire",
+      "slug": "guardians-of-ice-and-fire",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/guardians-of-ice-and-fire-h.webp"
+    },
+    {
+      "title": "Opera Dynasty",
+      "slug": "opera-dynasty",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/opera-dynasty-h.webp"
+    },
+    {
+      "title": "Fortune Ox",
+      "slug": "fortune-ox",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-ox-h.webp"
+    },
+    {
+      "title": "Bali Vacation",
+      "slug": "bali-vacation",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/bali-vacation-h.webp"
+    },
+    {
+      "title": "Crypto Gold",
+      "slug": "crypto-gold",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/crypto-gold-h.webp"
+    },
+    {
+      "title": "Majestic Treasures",
+      "slug": "majestic-treasures",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/majestic-treasures-h.webp"
+    },
+    {
+      "title": "Candy Superwin",
+      "slug": "candy-superwin",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/candy-superwin-h.webp"
+    },
+    {
+      "title": "Wild Bandito",
+      "slug": "wild-bandito",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wild-bandito-h.webp"
+    },
+    {
+      "title": "Ways of the Qilin",
+      "slug": "ways-of-the-qilin",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/ways-of-the-qilin-h.webp"
+    },
+    {
+      "title": "Heist Stakes",
+      "slug": "heist-stakes",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/heist-stakes-h.webp"
+    },
+    {
+      "title": "Rise of the Sun God",
+      "slug": "rise-of-the-sun-god",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/rise-of-the-sun-god-h.webp"
+    },
+    {
+      "title": "Jurassic Kingdom",
+      "slug": "jurassic-kingdom",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/jurassic-kingdom-h.webp"
+    },
+    {
+      "title": "Mermaid Riches",
+      "slug": "mermaid-riches",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mermaid-riches-h.webp"
+    },
+    {
+      "title": "Raider Jane's Crypt of Fortune",
+      "slug": "raider-jane-s-crypt-of-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/raider-jane-s-crypt-of-fortune-h.webp"
+    },
+    {
+      "title": "Supermarket Spree",
+      "slug": "supermarket-spree",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/supermarket-spree-h.webp"
+    },
+    {
+      "title": "Buffalo Win",
+      "slug": "buffalo-win",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/buffalo-win-h.webp"
+    },
+    {
+      "title": "Legendary Monkey King",
+      "slug": "legendary-monkey-king",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/legendary-monkey-king-h.webp"
+    },
+    {
+      "title": "Spirited Wonders",
+      "slug": "spirited-wonders",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/spirited-wonders-h.webp"
+    },
+    {
+      "title": "Emoji Riches",
+      "slug": "emoji-riches",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/emoji-riches-h.webp"
+    },
+    {
+      "title": "Cocktail Nights",
+      "slug": "cocktail-nights",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/cocktail-nights-h.webp"
+    },
+    {
+      "title": "Fortune Tiger",
+      "slug": "fortune-tiger",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-tiger-h.webp"
+    },
+    {
+      "title": "Mask Carnival",
+      "slug": "mask-carnival",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mask-carnival-h.webp"
+    },
+    {
+      "title": "Oriental Prosperity",
+      "slug": "oriental-prosperity",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/oriental-prosperity-h.webp"
+    },
+    {
+      "title": "Garuda Gems",
+      "slug": "garuda-gems",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/garuda-gems-h.webp"
+    },
+    {
+      "title": "Destiny of Sun & Moon",
+      "slug": "destiny-of-sun-moon",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/destiny-of-sun-moon-h.webp"
+    },
+    {
+      "title": "Butterfly Blossom",
+      "slug": "butterfly-blossom",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/butterfly-blossom-h.webp"
+    },
+    {
+      "title": "Rooster Rumble",
+      "slug": "rooster-rumble",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/rooster-rumble-h.webp"
+    },
+    {
+      "title": "The Queen’s Banquet",
+      "slug": "the-queen-s-banquet",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/the-queen-s-banquet-h.webp"
+    },
+    {
+      "title": "Battleground Royale",
+      "slug": "battleground-royale",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/battleground-royale-h.webp"
+    },
+    {
+      "title": "Win Win Fish Prawn Crab",
+      "slug": "win-win-fish-prawn-crab",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/win-win-fish-prawn-crab-h.webp"
+    },
+    {
+      "title": "Lucky Piggy",
+      "slug": "lucky-piggy",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/lucky-piggy-h.webp"
+    },
+    {
+      "title": "Speed Winner",
+      "slug": "speed-winner",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/speed-winner-h.webp"
+    },
+    {
+      "title": "Legend of Perseus",
+      "slug": "legend-of-perseus",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/legend-of-perseus-h.webp"
+    },
+    {
+      "title": "Wild Coaster",
+      "slug": "wild-coaster",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wild-coaster-h.webp"
+    },
+    {
+      "title": "Wild Bounty Showdown",
+      "slug": "wild-bounty-showdown",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wild-bounty-showdown-h.webp"
+    },
+    {
+      "title": "Prosperity Fortune Tree",
+      "slug": "prosperity-fortune-tree",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/prosperity-fortune-tree-h.webp"
+    },
+    {
+      "title": "Totem Wonders",
+      "slug": "totem-wonders",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/totem-wonders-h.webp"
+    },
+    {
+      "title": "Alchemy Gold",
+      "slug": "alchemy-gold",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/alchemy-gold-h.webp"
+    },
+    {
+      "title": "Diner Delights",
+      "slug": "diner-delights",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/diner-delights-h.webp"
+    },
+    {
+      "title": "Asgardian Rising",
+      "slug": "asgardian-rising",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/asgardian-rising-h.webp"
+    },
+    {
+      "title": "Midas Fortune",
+      "slug": "midas-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/midas-fortune-h.webp"
+    },
+    {
+      "title": "Fortune Rabbit",
+      "slug": "fortune-rabbit",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-rabbit-h.webp"
+    },
+    {
+      "title": "Rave Party Fever",
+      "slug": "rave-party-fever",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/rave-party-fever-h.webp"
+    },
+    {
+      "title": "Hawaiian Tiki",
+      "slug": "hawaiian-tiki",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/hawaiian-tiki-h.webp"
+    },
+    {
+      "title": "Bakery Bonanza",
+      "slug": "bakery-bonanza",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/bakery-bonanza-h.webp"
+    },
+    {
+      "title": "Songkran Splash",
+      "slug": "songkran-splash",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/songkran-splash-h.webp"
+    },
+    {
+      "title": "Mystical Spirits",
+      "slug": "mystical-spirits",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mystical-spirits-h.webp"
+    },
+    {
+      "title": "Super Golf Drive",
+      "slug": "super-golf-drive",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/super-golf-drive-h.webp"
+    },
+    {
+      "title": "Lucky Clover Lady",
+      "slug": "lucky-clover-lady",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/lucky-clover-lady-h.webp"
+    },
+    {
+      "title": "Fruity Candy",
+      "slug": "fruity-candy",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fruity-candy-h.webp"
+    },
+    {
+      "title": "Cruise Royale",
+      "slug": "cruise-royale",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/cruise-royale-h.webp"
+    },
+    {
+      "title": "Safari Wilds",
+      "slug": "safari-wilds",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/safari-wilds-h.webp"
+    },
+    {
+      "title": "Gladiator's Glory",
+      "slug": "gladiator-s-glory",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/gladiator-s-glory-h.webp"
+    },
+    {
+      "title": "Ninja Raccoon Frenzy",
+      "slug": "ninja-raccoon-frenzy",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/ninja-raccoon-frenzy-h.webp"
+    },
+    {
+      "title": "Ultimate Striker",
+      "slug": "ultimate-striker",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/ultimate-striker-h.webp"
+    },
+    {
+      "title": "Wild Heist Cashout",
+      "slug": "wild-heist-cashout",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wild-heist-cashout-h.webp"
+    },
+    {
+      "title": "Forge of Wealth",
+      "slug": "forge-of-wealth",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/forge-of-wealth-h.webp"
+    },
+    {
+      "title": "Mafia Mayhem",
+      "slug": "mafia-mayhem",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mafia-mayhem-h.webp"
+    },
+    {
+      "title": "Tsar Treasures",
+      "slug": "tsar-treasures",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/tsar-treasures-h.webp"
+    },
+    {
+      "title": "Werewolf's Hunt",
+      "slug": "werewolf-s-hunt",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/werewolf-s-hunt-h.webp"
+    },
+    {
+      "title": "Dragon Hatch 2",
+      "slug": "dragon-hatch-2",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dragon-hatch-2-h.webp"
+    },
+    {
+      "title": "Fortune Dragon",
+      "slug": "fortune-dragon",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-dragon-h.webp"
+    },
+    {
+      "title": "Gemstones Gold",
+      "slug": "gemstones-gold",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/gemstones-gold-h.webp"
+    },
+    {
+      "title": "Cash Mania",
+      "slug": "cash-mania",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/cash-mania-h.webp"
+    },
+    {
+      "title": "Wild Ape #3258",
+      "slug": "wild-ape-3258",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wild-ape-3258-h.webp"
+    },
+    {
+      "title": "Pinata Wins",
+      "slug": "pinata-wins",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/pinata-wins-h.webp"
+    },
+    {
+      "title": "Mystic Potion",
+      "slug": "mystic-potion",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mystic-potion-h.webp"
+    },
+    {
+      "title": "Anubis Wrath",
+      "slug": "anubis-wrath",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/anubis-wrath-h.webp"
+    },
+    {
+      "title": "Zombie Outbreak",
+      "slug": "zombie-outbreak",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/zombie-outbreak-h.webp"
+    },
+    {
+      "title": "Chicky Run",
+      "slug": "chicky-run",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/chicky-run-h.webp"
+    },
+    {
+      "title": "Futebol Fever",
+      "slug": "futebol-fever",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/futebol-fever-h.webp"
+    },
+    {
+      "title": "Shark Bounty",
+      "slug": "shark-bounty",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/shark-bounty-h.webp"
+    },
+    {
+      "title": "Yakuza Honor",
+      "slug": "yakuza-honor",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/yakuza-honor-h.webp"
+    },
+    {
+      "title": "Wings of Iguazu",
+      "slug": "wings-of-iguazu",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/wings-of-iguazu-h.webp"
+    },
+    {
+      "title": "Three Crazy Piggies",
+      "slug": "three-crazy-piggies",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/three-crazy-piggies-h.webp"
+    },
+    {
+      "title": "Oishi Delights",
+      "slug": "oishi-delights",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/oishi-delights-h.webp"
+    },
+    {
+      "title": "Museum Wonders",
+      "slug": "museum-wonders",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/museum-wonders-h.webp"
+    },
+    {
+      "title": "Rio Fantasia",
+      "slug": "rio-fantasia",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/rio-fantasia-h.webp"
+    },
+    {
+      "title": "Chocolate Deluxe",
+      "slug": "chocolate-deluxe",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/chocolate-deluxe-h.webp"
+    },
+    {
+      "title": "Geisha's Revenge",
+      "slug": "geisha-s-revenge",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/geisha-s-revenge-h.webp"
+    },
+    {
+      "title": "Fortune Snake",
+      "slug": "fortune-snake",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-snake-h.webp"
+    },
+    {
+      "title": "Incan Wonders",
+      "slug": "incan-wonders",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/incan-wonders-h.webp"
+    },
+    {
+      "title": "Mr. Treasure’s Fortune",
+      "slug": "mr-treasure-s-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mr-treasure-s-fortune-h.webp"
+    },
+    {
+      "title": "Graffiti Rush",
+      "slug": "graffiti-rush",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/graffiti-rush-h.webp"
+    },
+    {
+      "title": "Doomsday Rampage",
+      "slug": "doomsday-rampage",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/doomsday-rampage-h.webp"
+    },
+    {
+      "title": "Knockout Riches",
+      "slug": "knockout-riches",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/knockout-riches-h.webp"
+    },
+    {
+      "title": "Dead Man's Riches",
+      "slug": "dead-man-s-riches",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dead-man-s-riches-h.webp"
+    },
+    {
+      "title": "Jack the Giant Hunter",
+      "slug": "jack-the-giant-hunter",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/jack-the-giant-hunter-h.webp"
+    },
+    {
+      "title": "Diner Frenzy Spins",
+      "slug": "diner-frenzy-spins",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/diner-frenzy-spins-h.webp"
+    },
+    {
+      "title": "Dragon's Treasure Quest",
+      "slug": "dragon-s-treasure-quest",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/dragon-s-treasure-quest-h.webp"
+    },
+    {
+      "title": "Galaxy Miner",
+      "slug": "galaxy-miner",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/galaxy-miner-h.webp"
+    },
+    {
+      "title": "Grimms' Bounty: Hansel & Gretel",
+      "slug": "grimms-bounty-hansel-gretel",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/grimms-bounty-hansel-gretel-h.webp"
+    },
+    {
+      "title": "Majestic Empire",
+      "slug": "majestic-empire",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/majestic-empire-h.webp"
+    },
+    {
+      "title": "Kraken Gold Rush",
+      "slug": "kraken-gold-rush",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/kraken-gold-rush-h.webp"
+    },
+    {
+      "title": "Pharaoh Royals",
+      "slug": "pharaoh-royals",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/pharaoh-royals-h.webp"
+    },
+    {
+      "title": "Skylight Wonders",
+      "slug": "skylight-wonders",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/skylight-wonders-h.webp"
+    },
+    {
+      "title": "Alibaba's Cave of Fortune",
+      "slug": "alibaba-s-cave-of-fortune",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/alibaba-s-cave-of-fortune-h.webp"
+    },
+    {
+      "title": "Poker Kingdom Win",
+      "slug": "poker-kingdom-win",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/poker-kingdom-win-h.webp"
+    },
+    {
+      "title": "Mythical Guardians",
+      "slug": "mythical-guardians",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mythical-guardians-h.webp"
+    },
+    {
+      "title": "Forbidden Alchemy",
+      "slug": "forbidden-alchemy",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/forbidden-alchemy-h.webp"
+    },
+    {
+      "title": "Fortune Horse",
+      "slug": "fortune-horse",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/fortune-horse-h.webp"
+    },
+    {
+      "title": "Inferno Mayhem",
+      "slug": "inferno-mayhem",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/inferno-mayhem-h.webp"
+    },
+    {
+      "title": "Mayan Destiny",
+      "slug": "mayan-destiny",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/mayan-destiny-h.webp"
+    },
+    {
+      "title": "Funky Fortunez",
+      "slug": "funky-fortunez",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/funky-fortunez-h.webp"
+    },
+    {
+      "title": "Perfect Strike",
+      "slug": "perfect-strike",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/perfect-strike-h.webp"
+    },
+    {
+      "title": "Zombie Blasters",
+      "slug": "zombie-blasters",
+      "url": "https://asset.file-upload.cloud/game-assets/v2/gm88/slot/PGS/zombie-blasters-h.webp"
+    }
+  ]
+}

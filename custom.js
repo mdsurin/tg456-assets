@@ -65,39 +65,7 @@
   }, 5000);
 })();
 
-/* ===== 3. MEMBER LOGO SHIFT (mobile) ===== */
-(function(){
-  function apply(){
-    var el = document.querySelector('.main-logo-member');
-    if(!el){ setTimeout(apply, 1000); return; }
-    var w = window.innerWidth, shift, maxH, topShift;
-    if(w<=480){ shift=50; maxH='45px'; topShift=-15; }
-    else if(w<=768){ shift=40; maxH='55px'; topShift=-10; }
-    else { shift=-240; maxH=''; topShift=0; }
-    el.style.setProperty('position','relative','important');
-    el.style.setProperty('left', shift+'px', 'important');
-    el.style.setProperty('margin-right','auto','important');
-    el.style.setProperty('padding-left','0','important');
-    if(maxH){
-      el.style.setProperty('max-height', maxH, 'important');
-      el.style.setProperty('height', maxH, 'important');
-      el.style.setProperty('width','auto','important');
-      el.querySelectorAll('img').forEach(function(img){
-        img.style.setProperty('max-height', maxH, 'important');
-        img.style.setProperty('height', maxH, 'important');
-        img.style.setProperty('width','auto','important');
-        img.style.setProperty('object-fit','contain','important');
-      });
-      el.style.setProperty('align-self','flex-start','important');
-      var p = el.parentElement;
-      if(p) p.style.setProperty('align-items','flex-start','important');
-    }
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(apply, 500); });
-  else setTimeout(apply, 500);
-  window.addEventListener('resize', function(){ var e=document.querySelector('.main-logo-member'); if(e){ e.style.left=''; apply(); } });
-  setInterval(function(){ var e=document.querySelector('.main-logo-member'); if(e && !e.style.left) apply(); }, 4000);
-})();
+/* Module #3 (member logo shift) removed — was making logo tiny */
 
 /* ===== 4. WITHDRAWAL WIDGET (pending → success) ===== */
 (function(){

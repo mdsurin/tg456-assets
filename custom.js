@@ -354,3 +354,58 @@ var THAI_LATEST = { date:'16 ส.ค. 68', prize1:'751495', front3:['001','980']
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(build, 2500); });
   else setTimeout(build, 2500);
 })();
+
+
+/* ===== 11. JACKPOT BROKEN SLIDER (PGS 90% + others 10%) ===== */
+(function(){
+  var GAMES_URL='https://cdn.jsdelivr.net/gh/mdsurin/tg456-assets@main/slot-games.json';
+  var gamesCache=null;
+  function pad(n,l){var s=String(n);while(s.length<l)s='0'+s;return s;}
+  function rndUser(){return 'bqp'+pad(Math.floor(Math.random()*1e9),9);}
+  function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+  function rndAmount(){return 50000+Math.floor(Math.random()*4950000);}
+  function pickGame(){
+    if(!gamesCache)return null;
+    var provider;
+    if(Math.random()<0.9 && gamesCache.providers.PGS && gamesCache.providers.PGS.games.length){
+      provider=gamesCache.providers.PGS;
+    }else{
+      var keys=Object.keys(gamesCache.providers).filter(function(k){return gamesCache.providers[k].games.length>0;});
+      provider=gamesCache.providers[keys[Math.floor(Math.random()*keys.length)]];
+    }
+    var games=provider.games;
+    return games[Math.floor(Math.random()*games.length)];
+  }
+  function mkCard(){
+    var g=pickGame();if(!g)return null;
+    var amt=rndAmount();
+    var el=document.createElement('div');
+    el.className='jbs-card';
+    el.innerHTML='<div class="jbs-img-wrap"><img src="'+g.url+'" alt="'+(g.title||'')+'" onerror="this.style.opacity=0.3"/><div class="jbs-badge">JACKPOT</div></div>'+
+      '<div class="jbs-info"><div class="jbs-title">'+(g.title||g.slug)+'</div><div class="jbs-user">'+rndUser()+'</div><div class="jbs-amt">฿'+fmt(amt)+'</div></div>';
+    return el;
+  }
+  function build(){
+    if(location.pathname!=='/' && location.pathname!=='')return;
+    if(document.querySelector('.jbs-widget'))return;
+    var host=document.querySelector('.new-game-block')||document.querySelector('.game-type-block')||document.querySelector('.main-content');
+    if(!host){setTimeout(build,1000);return;}
+    var w=document.createElement('div');
+    w.className='jbs-widget';
+    w.innerHTML='<div class="jbs-head"><span class="jbs-fire">🔥</span> แจ็คพอตแตกล่าสุด <span class="jbs-live">LIVE</span></div><div class="jbs-list"></div>';
+    host.parentNode.insertBefore(w,host.nextSibling);
+    var list=w.querySelector('.jbs-list');
+    function refresh(){
+      var newCard=mkCard();if(!newCard)return;
+      list.insertBefore(newCard,list.firstChild);
+      while(list.children.length>8)list.removeChild(list.lastChild);
+    }
+    fetch(GAMES_URL).then(function(r){return r.json();}).then(function(d){
+      gamesCache=d;
+      for(var i=0;i<8;i++){var c=mkCard();if(c)list.appendChild(c);}
+      setInterval(refresh,3500);
+    }).catch(function(){});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(build,1500);});
+  else setTimeout(build,1500);
+})();

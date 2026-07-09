@@ -1,6 +1,6 @@
 /* ===================================================
    TG456 CUSTOM JS - All Widgets & Features
-   Consolidated: 9 features
+   Consolidated: 10 features
    =================================================== */
 
 /* ===== 1. MONEY FX INJECT (login/register cards) ===== */
@@ -107,7 +107,7 @@
     { n:'กรุงเทพ', img:'bbl', bg:'#1e4788' },
     { n:'กรุงไทย', img:'ktb', bg:'#00a3e0' },
     { n:'กรุงศรี', img:'bay', bg:'#f7a600' },
-    { n:'ทหารไทยธนชาต', img:'ttb', bg:'#0056a4' },
+    { n:'ทหารไทยธนชาต', img:'tmb', bg:'#0056a4' },
     { n:'ออมสิน', img:'gsb', bg:'#e91b83' },
     { n:'ธ.ก.ส.', img:'baac', bg:'#00854a' },
     { n:'ซีไอเอ็มบี', img:'cimb', bg:'#a02020' },
@@ -316,6 +316,31 @@ var THAI_LATEST = { date:'16 ส.ค. 68', prize1:'751495', front3:['001','980']
       if(bEl) bEl.textContent = fmtMoney(newB);
     });
   }, 8000);
+})();
+
+/* ===== 10. FOOTER BANK ICONS AUTO-FILL ===== */
+(function(){
+  var LOGOS = ['kbank','scb','bbl','ktb','bay','tmb','gsb','baac','cimb','uob','true'];
+  function fill(){
+    var container = document.querySelector('.footer-ic-bank');
+    if(!container){ setTimeout(fill, 1500); return; }
+    var imgs = container.querySelectorAll('img');
+    if(!imgs.length){ setTimeout(fill, 1500); return; }
+    var filled = 0;
+    imgs.forEach(function(img, i){
+      if(!img.getAttribute('src')){
+        img.setAttribute('src', '/g_assets/img/bank-logo/'+LOGOS[i % LOGOS.length]+'.svg');
+        img.style.background = 'transparent';
+        img.style.border = 'none';
+        img.style.padding = '4px';
+        filled++;
+      }
+    });
+    if(filled) container.style.gap = '8px';
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(fill, 1500); });
+  else setTimeout(fill, 1500);
+  setInterval(fill, 6000);
 })();
 
 /* ===== 9. SPORTS WIDGET (TheSportsDB — safe timeout) ===== */

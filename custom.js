@@ -143,7 +143,7 @@
 })();
 
 /* ===== 5. LOTTERY WIDGET ===== */
-var THAI_LATEST = { date:'16 ส.ค. 68', prize1:'', front3:['001','980'], back3:['304','531'], back2:'62' };
+var THAI_LATEST = { date:'16 ส.ค. 69', prize1:'004615', front3:['731','429'], back3:['937','094'], back2:'53' };
 (function(){
   function todayThai(){ var d=new Date(); var m=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.']; return d.getDate()+' '+m[d.getMonth()]+' '+(d.getFullYear()+543-2500); }
   function rnd(n){ var s=''; for(var i=0;i<n;i++) s += Math.floor(Math.random()*10); return s; }

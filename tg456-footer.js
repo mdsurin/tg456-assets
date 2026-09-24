@@ -26,6 +26,15 @@
     if (!Array.isArray(matches)) throw new Error('Expected a match array');
     return matches.filter(item => item && typeof item === 'object' && item.homeTeam && item.awayTeam).slice(0, 150);
   }
+  function filterMatches(matches, filter, now = Date.now()) {
+    const today = formatDate.format(new Date(now));
+    return matches.filter(item => {
+      if (filter === 'live') return item.isLive === true && item.status !== 'finished';
+      if (filter === 'finished') return item.status === 'finished' && !item.isLive;
+      if (filter === 'today') { const date = validDate(item.startTime); return !!date && formatDate.format(date) === today; }
+      return true;
+    });
+  }
   function team(data, demo) {
     const element = node('div', 'tg-sports-team');
     const fallback = node('span', 'tg-sports-logo tg-sports-fallback', (demo && data.symbol) || String(data.name || '?').slice(0, 1));
@@ -70,7 +79,7 @@
   function mount(root, config) {
     if (!root || root.dataset.sportsMounted) return;
     root.dataset.sportsMounted = 'true'; root.classList.add('tg-sports');
-    let active = 'soccer', controller, timer, sequence = 0, lastSuccess = 0, destroyed = false;
+    let active = 'soccer', activeFilter = 'today', currentMatches = [], controller, timer, sequence = 0, lastSuccess = 0, destroyed = false;
     const demo = config.demoData !== undefined;
     const header = node('header'); const titles = node('div');
     titles.append(node('h2', '', 'รายงานผลกีฬา'), node('p', 'tg-sports-subtitle', 'โปรแกรมแข่งขันและผลกีฬา • เวลาไทย (UTC+7)'));
@@ -86,7 +95,20 @@
     });
     header.append(titles, controls); root.append(header);
     if (demo) root.append(node('div', 'tg-sports-demo', 'ตัวอย่างหน้าตาเท่านั้น — ข้อมูลสมมติ ไม่ใช่ผลหรือราคาสด'));
-    root.append(tabs, track, status);
+    const filters = node('div', 'tg-sports-filters'); filters.setAttribute('role', 'group'); filters.setAttribute('aria-label', 'กรองการแข่งขัน');
+    const filterOptions = [['live', 'สด'], ['today', 'วันนี้'], ['finished', 'จบแล้ว'], ['all', 'ทั้งหมด']];
+    const count = node('span', 'tg-sports-count'); count.setAttribute('aria-live', 'polite');
+    const filterButtons = filterOptions.map(([key, label]) => {
+      const b = node('button', 'tg-sports-filter', label); b.type = 'button'; b.setAttribute('aria-pressed', String(key === activeFilter));
+      b.addEventListener('click', () => { activeFilter = key; filterButtons.forEach((button, i) => button.setAttribute('aria-pressed', String(filterOptions[i][0] === key))); track.scrollLeft = 0; renderMatches(); });
+      filters.append(b); return b;
+    });
+    filters.append(count); root.append(tabs, filters, track, status);
+    function renderMatches() {
+      const matches = filterMatches(currentMatches, activeFilter);
+      track.replaceChildren(...matches.map(item => card(item, demo))); count.textContent = matches.length + ' คู่';
+      if (!matches.length) empty(({live:'ยังไม่มีคู่ที่กำลังแข่งขัน',today:'ไม่มีรายการแข่งขันวันนี้',finished:'ยังไม่มีผลการแข่งขันที่จบแล้ว',all:'ไม่มีรายการแข่งขันในช่วงข้อมูลนี้'})[activeFilter]);
+    }
     const buttons = sports.map(([key, label], index) => {
       const button = node('button', 'tg-sports-tab', label); button.type = 'button'; button.id = root.id + '-' + key;
       button.setAttribute('role', 'tab'); button.setAttribute('aria-controls', track.id);
@@ -103,7 +125,7 @@
     });
     function empty(message) { track.replaceChildren(node('div', 'tg-sports-empty', message)); }
     function select(key) {
-      active = key; lastSuccess = 0;
+      active = key; lastSuccess = 0; currentMatches = []; count.textContent = ''; status.textContent = '';
       buttons.forEach((button, i) => { const selected = sports[i][0] === key; button.setAttribute('aria-selected', String(selected)); button.tabIndex = selected ? 0 : -1; });
       track.setAttribute('aria-labelledby', root.id + '-' + key); track.scrollLeft = 0; empty('กำลังโหลดข้อมูล…'); load();
     }
@@ -131,8 +153,7 @@
         }
         const matches = parseMatches(payload);
         if (request !== sequence || destroyed) return;
-        track.replaceChildren(...matches.map(item => card(item, demo)));
-        if (!matches.length) empty(demo ? 'ไม่มีรายการตัวอย่างในหมวดนี้' : active === 'mma' ? 'ไม่มีคู่แข่งขันในช่วง 7 วันที่ผ่านมาและ 14 วันข้างหน้า' : 'ไม่มีรายการแข่งขันวันนี้');
+        currentMatches = matches; renderMatches();
         lastSuccess = demo ? Date.now() : Date.parse(payload.updatedAt);
         status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : (payload.error ? 'ดึงข้อมูลกีฬาไม่สำเร็จ • กำลังแสดงข้อมูลที่บันทึกไว้' : '');
       } catch (error) {
@@ -152,7 +173,7 @@
     select(active);
     return () => { destroyed = true; ++sequence; clearTimeout(timer); if (controller) controller.abort(); document.removeEventListener('visibilitychange', visibility); root.replaceChildren(); delete root.dataset.sportsMounted; };
   }
-  if (typeof module !== 'undefined' && module.exports) module.exports = { parseMatches, validDate };
+  if (typeof module !== 'undefined' && module.exports) module.exports = { parseMatches, validDate, filterMatches };
   if (typeof window !== 'undefined') window.TG456Sports = { mount };
 })();
 
@@ -271,4 +292,17 @@ TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://ra
   if(banner.nextElementSibling!==sports)sports.parentNode.insertBefore(banner,sports);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',moveBanner,{once:true});else moveBanner();
+})();
+
+/* Results filters, mobile refinements and remembered popup dismissal */
+(function(){
+ 'use strict';
+ const key='tg456-notify-dismiss-until';
+ function remembered(){try{return Number(localStorage.getItem(key))>Date.now();}catch{return false;}}
+ function dismiss(){try{localStorage.setItem(key,String(Date.now()+30*86400000));}catch{}document.documentElement.classList.add('tg-notify-dismissed');}
+ if(remembered())document.documentElement.classList.add('tg-notify-dismissed');
+ document.addEventListener('click',e=>{if(e.target instanceof Element&&e.target.closest('.close-notify,.not-allow-notify'))dismiss();},true);
+ window.addEventListener('storage',e=>{if(e.key===key&&remembered())document.documentElement.classList.add('tg-notify-dismissed');});
+ const style=document.createElement('style');style.textContent=`html.tg-notify-dismissed .notify-popup-wrapper{display:none!important}.notify-popup-wrapper{position:fixed!important;top:auto!important;left:auto!important;right:16px!important;bottom:20px!important;width:340px!important;max-width:calc(100vw - 32px)!important;transform:none!important}.notify-popup-wrapper .notify-popup-container{width:100%!important;max-width:100%!important}.notify-popup-wrapper .ic-container{flex:0 0 64px!important}.notify-popup-wrapper .ic-container img{max-width:56px!important}.notify-popup-wrapper .content-detail{min-width:0}.notify-popup-wrapper h4{font-size:14px!important}.notify-popup-wrapper p{font-size:12px!important}.notify-popup-wrapper .close-notify{min-width:36px;min-height:36px}.notify-popup-wrapper .group-button{gap:6px}.notify-popup-wrapper .group-button .btn{font-size:12px;padding:7px 10px;white-space:nowrap}#tg456-sports .tg-sports-filters{display:flex;align-items:center;gap:6px;margin:0 0 12px;flex-wrap:wrap}#tg456-sports .tg-sports-filter{border:1px solid #4c2b68;border-radius:20px;background:#160b24;color:#cdbddd;font:inherit;font-size:12px;padding:7px 13px;min-height:34px;cursor:pointer}#tg456-sports .tg-sports-filter[aria-pressed=true]{background:#6d28d9;color:#fff;border-color:#a76de9}#tg456-sports .tg-sports-count{font-size:11px;color:#bda9d1;margin-left:auto}#tg456-sports .tg-sports-card>p.tg-sports-status{padding:0 10px 10px;margin:0;font-size:10px;overflow-wrap:anywhere}#tg456-sports .tg-sports-tabs{margin-bottom:9px}#tg456-sports .tg-sports-track,#tg456-lottery .tg-sports-track{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}@media(max-width:600px){.notify-popup-wrapper{right:12px!important;bottom:calc(84px + env(safe-area-inset-bottom))!important;width:320px!important;max-width:calc(100vw - 24px)!important}.main-content>.banner-block{max-width:100%;height:auto!important}.main-content>.banner-block img{height:auto!important;width:100%;object-fit:contain}#tg456-sports,#tg456-lottery{min-width:0;max-width:100%}#tg456-sports .tg-sports-tab,#tg456-lottery .tg-sports-tab{min-height:40px;font-size:13px}#tg456-sports .tg-sports-filter{min-height:36px;padding:7px 12px}#tg456-sports .tg-sports-odd{font-size:12px;flex-wrap:wrap}#tg456-sports .tg-sports-league{font-size:12px}#tg456-sports .tg-sports-team{font-size:12px}#tg456-lottery .tg-lotto-row{font-size:12px}#tg456-lottery .tg-lotto-row span{flex-basis:88px}}`;
+ document.head.append(style);
 })();

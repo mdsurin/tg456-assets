@@ -258,3 +258,17 @@ TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://ra
 
 /* Compact sports report */
 (function(){var s=document.createElement("style");s.textContent="#tg456-sports.tg-sports{padding:16px;border-radius:18px;margin:16px auto}\n#tg456-sports header{margin-bottom:12px;gap:10px}\n#tg456-sports h2{font-size:19px}\n#tg456-sports .tg-sports-subtitle{font-size:11px;margin-top:4px}\n#tg456-sports .tg-sports-arrow{width:30px;height:30px;font-size:18px}\n#tg456-sports .tg-sports-tabs{padding:4px;gap:3px;margin-bottom:14px}\n#tg456-sports .tg-sports-tab{padding:9px 14px;font-size:12px}\n#tg456-sports .tg-sports-track{gap:12px;padding-bottom:6px}\n#tg456-sports .tg-sports-card{flex:0 0 min(300px,90%);border-radius:14px}\n#tg456-sports .tg-sports-card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;padding:9px 11px;font-size:11px}\n#tg456-sports .tg-sports-league{grid-column:1;grid-row:1;line-height:1.4}\n#tg456-sports time{grid-column:1;grid-row:2;font-size:10px;color:#cfbddf}\n#tg456-sports .tg-sports-badge{grid-column:2;grid-row:1 / 3;padding:4px 7px;font-size:10px;align-self:center}\n#tg456-sports .tg-sports-teams{gap:6px;padding:12px 9px}\n#tg456-sports .tg-sports-team{font-size:12px;gap:6px;line-height:1.35}\n#tg456-sports .tg-sports-logo{width:32px;height:32px}\n#tg456-sports .tg-sports-fallback{font-size:16px}\n#tg456-sports .tg-sports-match-state{font-size:11px;line-height:1.4}\n#tg456-sports .tg-sports-match-value{font-size:18px}\n#tg456-sports .tg-sports-odds{gap:5px;padding:0 9px 10px}\n#tg456-sports .tg-sports-odd{padding:9px 6px;font-size:11px;border-radius:8px;gap:4px}\n#tg456-sports .tg-sports-empty{padding:20px 10px;font-size:12px}\n#tg456-sports .tg-sports-status:empty{display:none}\n@media(max-width:600px){#tg456-sports.tg-sports{padding:12px;margin:12px 0;border-radius:16px}#tg456-sports h2{font-size:18px}#tg456-sports .tg-sports-card{flex-basis:min(280px,92%)}#tg456-sports .tg-sports-tab{padding:8px 12px}}\n";document.head.appendChild(s);})();
+
+/* Homepage banner above sports */
+(function(){
+ 'use strict';
+ if(location.pathname!=='/'&&location.pathname!=='')return;
+ let attempts=0;
+ function moveBanner(){
+  const sports=document.getElementById('tg456-sports');
+  const banner=document.querySelector('.main-content > .banner-block');
+  if(!sports||!banner){if(++attempts<60)setTimeout(moveBanner,250);return;}
+  if(banner.nextElementSibling!==sports)sports.parentNode.insertBefore(banner,sports);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',moveBanner,{once:true});else moveBanner();
+})();

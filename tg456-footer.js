@@ -29,10 +29,10 @@
   function team(data, demo) {
     const element = node('div', 'tg-sports-team');
     const fallback = node('span', 'tg-sports-logo tg-sports-fallback', (demo && data.symbol) || String(data.name || '?').slice(0, 1));
-    if (data._id && !demo && /^[\w-]+$/.test(String(data._id))) {
+    if (!demo && /^https:\/\/media\.api-sports\.io\/football\/teams\/\d+\.png$/.test(data.logo || '')) {
       const img = node('img', 'tg-sports-logo');
       img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
-      img.src = 'https://d3k22jgiqn0yg7.cloudfront.net/leagues_teams/teams/' + encodeURIComponent(data._id) + '.png';
+      img.src = data.logo;
       img.addEventListener('error', () => img.replaceWith(fallback), { once: true });
       element.append(img);
     } else element.append(fallback);
@@ -47,9 +47,9 @@
     if (date) time.dateTime = date.toISOString();
     const finished = item.status === 'finished';
     head.append(node('span', 'tg-sports-league', item.leagueName || 'ไม่ระบุลีก'), time,
-      node('span', 'tg-sports-badge' + (item.isLive ? ' live' : ''), item.isLive ? 'สด' : finished ? 'จบ' : 'รอ'));
+      node('span', 'tg-sports-badge' + (item.isLive ? ' live' : ''), item.isLive ? 'สด' : finished ? 'จบ' : item.status === 'unavailable' ? 'พัก' : 'รอ'));
     const teams = node('div', 'tg-sports-teams');
-    const state = node('div', 'tg-sports-match-state', item.isLive ? 'กำลังแข่งขัน' : finished ? 'จบการแข่งขัน' : 'ยังไม่เริ่ม');
+    const state = node('div', 'tg-sports-match-state', item.isLive ? 'กำลังแข่งขัน' : finished ? 'จบการแข่งขัน' : item.statusLabel || 'ยังไม่เริ่ม');
     const score = item.homeTeam.score != null && item.awayTeam.score != null ? item.homeTeam.score + ' – ' + item.awayTeam.score : '–';
     state.append(node('strong', 'tg-sports-match-value', item.isLive || finished ? score : date ? formatTime.format(date) : '–'));
     teams.append(team(item.homeTeam, demo), state, team(item.awayTeam, demo));
@@ -63,6 +63,8 @@
       odds.append(row);
     });
     element.append(head, teams, odds);
+    const quoteTime = validDate(item.oddsUpdatedAt);
+    element.append(node('p', 'tg-sports-status', item.selections?.length ? 'ราคา 1X2 ก่อนแข่ง • ' + (item.oddsSource || '') + (quoteTime ? ' • ' + formatDate.format(quoteTime) + ' ' + formatTime.format(quoteTime) + ' น.' : '') : 'ยังไม่มีราคาสำหรับคู่นี้'));
     return element;
   }
   function mount(root, config) {
@@ -117,18 +119,21 @@
           if (!config.endpoint) { empty('รอเชื่อมต่อ API ข้อมูลกีฬาสำหรับ TG456'); status.textContent = 'ยังไม่ได้เชื่อมข้อมูลสด'; return; }
           const endpoint = new URL(config.endpoint, location.href);
           if (endpoint.origin !== location.origin && endpoint.protocol !== 'https:') throw new Error('HTTPS required');
-          endpoint.searchParams.set('type', active); endpoint.searchParams.set('lang', 'th-TH'); endpoint.searchParams.set('currency', 'THB');
+          endpoint.searchParams.set('v', String(Math.floor(Date.now() / refreshMs)));
           controller = new AbortController(); timeout = setTimeout(() => controller.abort(), 15000);
           const response = await fetch(endpoint.href, { signal: controller.signal, credentials: 'omit', cache: 'no-store', headers: { Accept: 'application/json' } });
           if (!response.ok) throw new Error('API unavailable');
-          payload = await response.json();
+          const feed = await response.json();
+          if (!feed.sports || !validDate(feed.updatedAt)) throw new Error('Invalid feed');
+          if (!feed.sports[active]) { empty('ยังไม่ได้เชื่อมข้อมูลจริงสำหรับกีฬานี้'); status.textContent = 'เปิดให้บริการข้อมูลฟุตบอลก่อน'; return; }
+          payload = {...feed.sports[active], updatedAt:feed.updatedAt};
         }
         const matches = parseMatches(payload);
         if (request !== sequence || destroyed) return;
         track.replaceChildren(...matches.map(item => card(item, demo)));
         if (!matches.length) empty(demo ? 'ไม่มีรายการตัวอย่างในหมวดนี้' : 'ไม่มีรายการแข่งขันในหมวดนี้');
-        lastSuccess = Date.now();
-        status.textContent = demo ? 'โหมดตัวอย่าง • ยังไม่ได้เชื่อมต่อข้อมูลสด' : 'ดึงข้อมูลสำเร็จ ' + formatTime.format(new Date(lastSuccess)) + ' น. • ตรวจอัปเดตทุก 5 นาที';
+        lastSuccess = demo ? Date.now() : Date.parse(payload.updatedAt);
+        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : 'ข้อมูลจาก API-SPORTS • อัปเดต ' + formatDate.format(new Date(lastSuccess)) + ' ' + formatTime.format(new Date(lastSuccess)) + ' น. • รอบข้อมูลประมาณ 30 นาที' + (Date.now() - lastSuccess > 90 * 60000 ? ' • ข้อมูลล่าช้า' : '');
       } catch (error) {
         if (request !== sequence || destroyed) return;
         if (!lastSuccess) empty('ยังโหลดข้อมูลไม่ได้ กรุณาลองใหม่ภายหลัง');
@@ -150,6 +155,7 @@
   if (typeof window !== 'undefined') window.TG456Sports = { mount };
 })();
 
+
 (function(){
   if(location.pathname !== '/' && location.pathname !== '') return;
   var tries = 0;
@@ -161,9 +167,7 @@
     var root=document.createElement('section');root.id='tg456-sports';root.className='sp-widget';
     if(old) old.replaceWith(root);else host.parentNode.insertBefore(root,host.nextSibling);
     
-const flags = {'เซอร์เบีย':'🇷🇸','กรีซ':'🇬🇷','เนเธอร์แลนด์':'🇳🇱','เยอรมนี':'🇩🇪','นอร์เวย์':'🇳🇴','เดนมาร์ก':'🇩🇰'};
-const example = (league,home,away,time,odds) => ({leagueName:league,startTime:'2026-09-25T'+time+':00+07:00',isLive:false,homeTeam:{name:home,symbol:flags[home]},awayTeam:{name:away,symbol:flags[away]},selections:[{outcomeType:'Home',odds:odds[0]},{outcomeType:'Away',odds:odds[1]},{outcomeType:'Tie',odds:odds[2]}].filter(selection => selection.odds != null)});
-TG456Sports.mount(document.getElementById('tg456-sports'),{demoData:{soccer:[example('UEFA เนชันส์ลีก A','เซอร์เบีย','กรีซ','01:45',[2.11,1.80,2.52]),example('UEFA เนชันส์ลีก A','เนเธอร์แลนด์','เยอรมนี','01:45',[2.08,1.83,2.39]),example('UEFA เนชันส์ลีก A','นอร์เวย์','เดนมาร์ก','01:45',[2.02,1.88,2.30]),example('ลีกตัวอย่าง','ทีมเหย้า','ทีมเยือน','03:00',[2.1,1.9,2.4])],baseball:[example('ลีกเบสบอลตัวอย่าง','ทีม A','ทีม B','08:00',[1.85,2.05,null])],volleyball:[example('ลีกวอลเลย์บอลตัวอย่าง','ทีม A','ทีม B','18:00',[1.7,2.2,null])],esport:[example('ทัวร์นาเมนต์ตัวอย่าง','Team Alpha','Team Beta','20:00',[1.9,1.9,null])]}});
+TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://raw.githubusercontent.com/mdsurin/tg456-assets/main/data/sports.json'});
 
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();

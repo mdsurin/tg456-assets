@@ -180,25 +180,13 @@ TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://ra
 /* lwd-realistic */
 (function(){
  'use strict';
- if(location.pathname!=='/'&&location.pathname!=='')return;
- const examples=[['kbank','กสิกรไทย','001',3210],['scb','ไทยพาณิชย์','002',8450],['ktb','กรุงไทย','003',12600],['bbl','กรุงเทพ','004',5400],['bay','กรุงศรี','005',18750],['gsb','ออมสิน','006',6200],['baac','ธ.ก.ส.','007',9800],['true','ทรูมันนี่','008',4300]];
- function el(tag,cls,text){const n=document.createElement(tag);n.className=cls;if(text!==undefined)n.textContent=text;return n;}
- let attempts=0;
- function install(){
-  if(document.getElementById('tg456-withdrawals'))return;
-  const host=document.querySelector('.top-block')||document.querySelector('.promotion-block')||document.querySelector('.main-content');
-  if(!host){if(++attempts<60)setTimeout(install,250);return;}
-  document.querySelectorAll('.lwd-widget').forEach(n=>n.remove());
-  const root=el('section','lwd-widget');root.id='tg456-withdrawals';root.setAttribute('aria-label','ยอดถอนล่าสุด — ');
-  const style=el('style','');style.textContent=`#tg456-withdrawals{padding:12px;margin:14px auto;border:1px solid #3c2457;border-radius:16px;background:linear-gradient(110deg,#0d0718,#150b23);box-shadow:0 6px 18px #09031233;max-width:1440px;width:100%;min-width:0;color:#f8f5ff;font-family:Tahoma,Arial,sans-serif;overflow:hidden}#tg456-withdrawals *{box-sizing:border-box}#tg456-withdrawals .tw-head{display:flex;align-items:center;gap:8px;padding:0 2px;margin-bottom:10px}#tg456-withdrawals h2{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin:0;flex:1;color:#f1e9fc;line-height:22px}#tg456-withdrawals h2:before{content:'฿';display:grid;place-items:center;width:22px;height:22px;border-radius:7px;color:#e0bdff;background:#51247b;font-size:14px}#tg456-withdrawals .tw-demo{font-size:11px;color:#ceb7e5;white-space:nowrap;padding:2px 7px;border:1px solid #49305f;border-radius:6px;line-height:16px}#tg456-withdrawals .tw-window{overflow-x:auto;scrollbar-width:none;border-radius:10px;mask-image:linear-gradient(90deg,transparent,#000 10px,#000 calc(100% - 10px),transparent)}#tg456-withdrawals .tw-window::-webkit-scrollbar{display:none}#tg456-withdrawals .tw-track{display:flex;width:max-content;animation:tg-withdraw-scroll 58s linear infinite}#tg456-withdrawals .tw-group{display:flex;gap:8px;padding-right:8px;flex:none}#tg456-withdrawals .tw-card{display:flex;align-items:center;gap:10px;width:202px;padding:10px;border:1px solid #432957;border-radius:10px;background:linear-gradient(120deg,#241333,#190f25);height:68px;box-shadow:inset 0 1px 0 #ffffff08}#tg456-withdrawals .tw-bank{width:34px;height:34px;padding:5px;background:#f7f3fb;object-fit:contain;border:1px solid #ffffff99;border-radius:9px;flex:none}#tg456-withdrawals .tw-details{min-width:0}#tg456-withdrawals .tw-user{font-size:11px;color:#cdbddc;font-weight:500;white-space:nowrap;letter-spacing:.25px;margin-bottom:3px}#tg456-withdrawals .tw-amount{font-size:18px;color:#6ce0b5;font-weight:700;line-height:1.2;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.3px}#tg456-withdrawals .tw-amount small{font-size:9px;color:#a49bad;font-weight:500;letter-spacing:0;margin-left:3px}#tg456-withdrawals:hover .tw-track,#tg456-withdrawals:focus-within .tw-track{animation-play-state:paused}@keyframes tg-withdraw-scroll{to{transform:translateX(-50%)}}@media(max-width:600px){#tg456-withdrawals{padding:10px;margin:10px auto;border-radius:13px}#tg456-withdrawals h2{font-size:13px}#tg456-withdrawals .tw-card{width:185px;padding:8px;height:62px;gap:8px}#tg456-withdrawals .tw-amount{font-size:17px}#tg456-withdrawals .tw-bank{width:30px;height:30px;padding:4px}}@media(prefers-reduced-motion:reduce){#tg456-withdrawals .tw-track{animation:none}#tg456-withdrawals .tw-group[aria-hidden=true]{display:none}}`;
-  document.head.append(style);
-  const head=el('div','tw-head');
-  head.append(el('h2','','ยอดถอนล่าสุด'),el('span','tw-demo',));
-  const viewport=el('div','tw-window');viewport.tabIndex=0;viewport.setAttribute('aria-label','รายการตัวอย่าง เลื่อนแนวนอนเพื่อดูเพิ่มเติม');
-  const track=el('div','tw-track'),group=el('div','tw-group');
-  examples.forEach(([bank,name,id,amount])=>{const card=el('article','tw-card'),logo=el('img','tw-bank');logo.src='/g_assets/img/bank-logo/'+bank+'.svg';logo.alt=name;logo.width=32;logo.height=32;logo.addEventListener('error',()=>{logo.replaceWith(el('span','tw-bank','฿'));},{once:true});const detail=el('div','tw-details'),value=el('div','tw-amount',amount.toLocaleString('en-US',{minimumFractionDigits:2})+' ');value.append(el('small','','THB'));detail.append(el('div','tw-user','bqp******'+id),value);card.append(logo,detail);group.append(card);});
-  const clone=group.cloneNode(true);clone.setAttribute('aria-hidden','true');clone.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>img.replaceWith(el('span','tw-bank','฿')),{once:true}));track.append(group,clone);viewport.append(track);root.append(head,viewport);host.parentNode.insertBefore(root,host.nextSibling);
- }
+ // The legacy custom.js creates its own withdrawal widget after page load.
+ // Keep that widget hidden and remove it whenever it is inserted.
+ const style=document.createElement('style');
+ style.textContent='.lwd-widget,#tg456-withdrawals{display:none!important}';
+ document.head.appendChild(style);
+ function removeWithdrawals(){document.querySelectorAll('.lwd-widget,#tg456-withdrawals').forEach(n=>n.remove());}
+ function install(){removeWithdrawals();new MutationObserver(records=>{if(records.some(r=>r.addedNodes.length))removeWithdrawals();}).observe(document.body,{childList:true,subtree:true});}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
 })();
 /* logo-bump-safe */

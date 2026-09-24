@@ -1,8 +1,14 @@
 name: Update sports data
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/sports-data.yml
+      - update-sports.mjs
+      - update-lottery.mjs
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '2-59/5 * * * *'
 permissions:
   contents: write
 concurrency:
@@ -34,4 +40,5 @@ jobs:
           done
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Refresh sports data'
+          git pull --rebase origin main
           git push

@@ -1,1 +1,33 @@
-
+name: Update sports data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,37 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: sports-data
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch shared sports feed
+        env:
+          APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
+        run: node update-sports.mjs
+      - name: Save feed and quota ledger
+        if: always()
+        run: |
+          if [ ! -f data/sports.json ]; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/sports.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh sports data'
+          git push

@@ -5,8 +5,8 @@
 (function(){var style=document.createElement("style");style.id="tg456-sports-style";style.textContent="#tg456-sports.tg-sports{--sport-accent:#a855f7;--sport-panel:#24103d;color:#f8f5ff;background:#0a0416;border:1px solid #422160;border-radius:24px;padding:28px;font-family:Tahoma,Arial,sans-serif;box-sizing:border-box;max-width:1440px;margin:24px auto}\n.tg-sports *{box-sizing:border-box}.tg-sports header{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px}.tg-sports h2{font-size:24px;margin:0}.tg-sports .tg-sports-subtitle{font-size:13px;color:#c1b2d5;margin:8px 0 0}.tg-sports button{font:inherit;cursor:pointer}.tg-sports .tg-sports-controls{display:flex;gap:8px}.tg-sports .tg-sports-arrow{border:1px solid #683399;color:#e4c6ff;background:#241039;border-radius:50%;width:38px;height:38px;font-size:22px}.tg-sports .tg-sports-tabs{display:flex;width:max-content;max-width:100%;overflow:auto;background:#24103d;border-radius:48px;padding:5px;gap:5px;margin-bottom:24px}.tg-sports .tg-sports-tab{white-space:nowrap;color:#ccbfdf;background:transparent;border:1px solid transparent;border-radius:36px;padding:14px 24px;font-weight:bold}.tg-sports .tg-sports-tab[aria-selected=true]{background:linear-gradient(135deg,#a855f7,#6d28d9);color:white;border-color:#c084fc}.tg-sports button:focus-visible{outline:3px solid #76baff;outline-offset:3px}.tg-sports .tg-sports-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding-bottom:14px;scrollbar-color:#7c3aed #170b27}.tg-sports .tg-sports-card{flex:0 0 min(430px,90%);overflow:hidden;border-radius:24px;background:linear-gradient(115deg,#10081e,#35105b);scroll-snap-align:start}.tg-sports .tg-sports-card-head{display:flex;align-items:center;gap:10px;padding:15px 18px;background:linear-gradient(110deg,#4a1484,#19092e);font-size:14px}.tg-sports .tg-sports-league{font-weight:bold;flex:1;min-width:0}.tg-sports time{white-space:nowrap}.tg-sports .tg-sports-badge{border-radius:6px;background:#7c3aed;color:white;padding:5px 9px;white-space:nowrap;font-weight:bold}.tg-sports .tg-sports-badge.live{background:#b9253d}.tg-sports .tg-sports-teams{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;text-align:center;gap:10px;padding:20px 14px}.tg-sports .tg-sports-team{display:grid;justify-items:center;gap:9px;font-weight:bold;font-size:16px;overflow-wrap:anywhere}.tg-sports .tg-sports-logo{height:46px;width:46px;object-fit:contain}.tg-sports .tg-sports-fallback{display:grid;place-items:center;border-radius:50%;background:#432360;color:#fff;font-size:21px}.tg-sports .tg-sports-match-state{color:#c1b2d5;font-size:14px;line-height:1.5}.tg-sports .tg-sports-match-value{display:block;font-size:22px;font-weight:bold;color:#edb8ff}.tg-sports .tg-sports-odds{display:flex;gap:8px;padding:0 12px 14px}.tg-sports .tg-sports-odd{display:flex;justify-content:space-between;gap:10px;flex:1;background:#27133f;border-radius:12px;padding:15px 10px;font-size:15px}.tg-sports .tg-sports-empty{color:#ccbfdf;padding:36px 12px;width:100%;text-align:center}.tg-sports .tg-sports-status{color:#c1b2d5;font-size:12px;margin:8px 0 0;line-height:1.7}.tg-sports .tg-sports-demo{background:#25103e;border:1px solid #75419e;border-radius:10px;padding:10px 14px;color:#e9d5ff;font-size:13px;margin-bottom:18px}\n@media(max-width:600px){#tg456-sports.tg-sports{padding:18px 12px;border-radius:18px;margin:14px 0}.tg-sports h2{font-size:20px}.tg-sports .tg-sports-tab{padding:12px 18px;font-size:14px}.tg-sports .tg-sports-card{flex-basis:94%}.tg-sports .tg-sports-card-head{padding:12px;font-size:12px}.tg-sports .tg-sports-team{font-size:14px}.tg-sports .tg-sports-odd{font-size:13px;padding:12px 8px}.tg-sports .tg-sports-controls{display:none}}\n@media(prefers-reduced-motion:reduce){.tg-sports .tg-sports-track{scroll-behavior:auto}}\n";document.head.appendChild(style);})();
 (function () {
   'use strict';
-  const sports = [['soccer', 'ฟุตบอล'], ['baseball', 'เบสบอล'], ['volleyball', 'วอลเลย์บอล'], ['esport', 'อีสปอร์ต']];
-  const refreshMs = 300000;
+  const sports = [['soccer', 'ฟุตบอล'], ['basketball', 'บาสเกตบอล'], ['volleyball', 'วอลเลย์บอล'], ['baseball', 'เบสบอล'], ['mma', 'MMA / UFC']];
+  const refreshMs = 60000;
   const formatDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Bangkok', year: 'numeric', month: '2-digit', day: '2-digit' });
   const formatTime = new Intl.DateTimeFormat('th-TH', { timeZone: 'Asia/Bangkok', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
   function node(tag, className, text) {
@@ -24,12 +24,12 @@
     if (!payload || payload.success === false) throw new Error('Invalid API response');
     const matches = Array.isArray(payload) ? payload : payload.data;
     if (!Array.isArray(matches)) throw new Error('Expected a match array');
-    return matches.filter(item => item && typeof item === 'object' && item.homeTeam && item.awayTeam).slice(0, 100);
+    return matches.filter(item => item && typeof item === 'object' && item.homeTeam && item.awayTeam).slice(0, 150);
   }
   function team(data, demo) {
     const element = node('div', 'tg-sports-team');
     const fallback = node('span', 'tg-sports-logo tg-sports-fallback', (demo && data.symbol) || String(data.name || '?').slice(0, 1));
-    if (!demo && /^https:\/\/media\.api-sports\.io\/football\/teams\/\d+\.png$/.test(data.logo || '')) {
+    if (!demo && /^https:\/\/media\.api-sports\.io\/(?:football|basketball|volley|baseball|mma)\/(?:teams|fighters)\/\d+\.png$/.test(data.logo || '')) {
       const img = node('img', 'tg-sports-logo');
       img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
       img.src = data.logo;
@@ -51,7 +51,7 @@
     const teams = node('div', 'tg-sports-teams');
     const state = node('div', 'tg-sports-match-state', item.isLive ? 'กำลังแข่งขัน' : finished ? 'จบการแข่งขัน' : item.statusLabel || 'ยังไม่เริ่ม');
     const score = item.homeTeam.score != null && item.awayTeam.score != null ? item.homeTeam.score + ' – ' + item.awayTeam.score : '–';
-    state.append(node('strong', 'tg-sports-match-value', item.isLive || finished ? score : date ? formatTime.format(date) : '–'));
+    state.append(node('strong', 'tg-sports-match-value', item.resultText || (item.isLive || finished ? score : date ? formatTime.format(date) : '–')));
     teams.append(team(item.homeTeam, demo), state, team(item.awayTeam, demo));
     const odds = node('div', 'tg-sports-odds');
     const names = { Home: 'เหย้า', Away: 'เยือน', Tie: 'เสมอ' };
@@ -64,7 +64,7 @@
     });
     element.append(head, teams, odds);
     const quoteTime = validDate(item.oddsUpdatedAt);
-    element.append(node('p', 'tg-sports-status', item.selections?.length ? 'ราคา 1X2 ก่อนแข่ง • ' + (item.oddsSource || '') + (quoteTime ? ' • ' + formatDate.format(quoteTime) + ' ' + formatTime.format(quoteTime) + ' น.' : '') : 'ยังไม่มีราคาสำหรับคู่นี้'));
+    element.append(node('p', 'tg-sports-status', item.selections?.length ? 'ราคาผู้ชนะก่อนแข่ง • ' + (item.oddsSource || '') + (quoteTime ? ' • ' + formatDate.format(quoteTime) + ' ' + formatTime.format(quoteTime) + ' น.' : '') : 'ยังไม่มีราคาสำหรับคู่นี้'));
     return element;
   }
   function mount(root, config) {
@@ -125,15 +125,16 @@
           if (!response.ok) throw new Error('API unavailable');
           const feed = await response.json();
           if (!feed.sports || !validDate(feed.updatedAt)) throw new Error('Invalid feed');
-          if (!feed.sports[active]) { empty('ยังไม่ได้เชื่อมข้อมูลจริงสำหรับกีฬานี้'); status.textContent = 'เปิดให้บริการข้อมูลฟุตบอลก่อน'; return; }
-          payload = {...feed.sports[active], updatedAt:feed.updatedAt};
+          if (!feed.sports[active]) { empty('ยังไม่ได้เชื่อมข้อมูลจริงสำหรับกีฬานี้'); status.textContent = 'กำลังเตรียมข้อมูลสำหรับกีฬานี้'; return; }
+          payload = {...feed.sports[active], updatedAt:feed.sports[active].updatedAt || feed.updatedAt};
+          if (payload.error && !payload.data?.length) throw new Error('Sport unavailable');
         }
         const matches = parseMatches(payload);
         if (request !== sequence || destroyed) return;
         track.replaceChildren(...matches.map(item => card(item, demo)));
-        if (!matches.length) empty(demo ? 'ไม่มีรายการตัวอย่างในหมวดนี้' : 'ไม่มีรายการแข่งขันในหมวดนี้');
+        if (!matches.length) empty(demo ? 'ไม่มีรายการตัวอย่างในหมวดนี้' : active === 'mma' ? 'ไม่มีคู่แข่งขันในช่วง 7 วันที่ผ่านมาและ 14 วันข้างหน้า' : 'ไม่มีรายการแข่งขันวันนี้');
         lastSuccess = demo ? Date.now() : Date.parse(payload.updatedAt);
-        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : (Date.now() - lastSuccess > 90 * 60000 ? 'ข้อมูลล่าช้า' : '');
+        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : (payload.error || Date.now() - lastSuccess > 20 * 60000 ? 'ข้อมูลล่าช้า' : '');
       } catch (error) {
         if (request !== sequence || destroyed) return;
         if (!lastSuccess) empty('ยังโหลดข้อมูลไม่ได้ กรุณาลองใหม่ภายหลัง');

@@ -163,10 +163,11 @@
   function install(){
     if(document.getElementById('tg456-sports')) return;
     var old=document.querySelector('.sp-widget');
-    var host=document.querySelector('.promotion-block')||document.querySelector('.lwd-widget')||document.querySelector('.top-block');
-    if(!old && !host){if(++tries<60)setTimeout(install,500);return;}
+    var host=Array.from(document.querySelectorAll('.main-content > .line-block')).find(function(el){return el.textContent.trim()==='เกมส์ใหม่ยอดฮิต';});
+    if(!host){if(++tries<60)setTimeout(install,500);return;}
     var root=document.createElement('section');root.id='tg456-sports';root.className='sp-widget';
-    if(old) old.replaceWith(root);else host.parentNode.insertBefore(root,host.nextSibling);
+    if(old) old.remove();
+    host.parentNode.insertBefore(root,host);
     
 TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://raw.githubusercontent.com/mdsurin/tg456-assets/main/data/sports.json'});
 

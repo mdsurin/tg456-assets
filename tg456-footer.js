@@ -134,7 +134,7 @@
         track.replaceChildren(...matches.map(item => card(item, demo)));
         if (!matches.length) empty(demo ? 'ไม่มีรายการตัวอย่างในหมวดนี้' : active === 'mma' ? 'ไม่มีคู่แข่งขันในช่วง 7 วันที่ผ่านมาและ 14 วันข้างหน้า' : 'ไม่มีรายการแข่งขันวันนี้');
         lastSuccess = demo ? Date.now() : Date.parse(payload.updatedAt);
-        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : (payload.error || Date.now() - lastSuccess > 20 * 60000 ? 'ข้อมูลล่าช้า' : '');
+        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : '';
       } catch (error) {
         if (request !== sequence || destroyed) return;
         if (!lastSuccess) empty('ยังโหลดข้อมูลไม่ได้ กรุณาลองใหม่ภายหลัง');
@@ -241,7 +241,7 @@ TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://ra
   function render(){
    const items=feed?.groups?.[active]||[];track.replaceChildren(...items.map(card));
    if(!items.length)track.append(el('div','tg-sports-empty',feed?'ยังไม่มีข้อมูลในหมวดนี้':'กำลังโหลดผลหวย…'));
-   status.textContent=feed?.error||feed&&Date.now()-Date.parse(feed.updatedAt)>30*60000?'ข้อมูลอาจล่าช้า • กำลังแสดงผลตามวันที่งวดบนการ์ด':'';
+   status.textContent='';
   }
   const buttons=categories.map(([key,label],i)=>{const b=el('button','tg-sports-tab',label);b.type='button';b.id='tg456-lottery-'+key;b.setAttribute('role','tab');b.setAttribute('aria-controls',track.id);b.addEventListener('click',()=>select(key));b.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight')next=(i+1)%categories.length;if(e.key==='ArrowLeft')next=(i+categories.length-1)%categories.length;if(e.key==='Home')next=0;if(e.key==='End')next=categories.length-1;if(next!==undefined){e.preventDefault();buttons[next].focus();select(categories[next][0]);}});tabs.append(b);return b;});
   function select(key){active=key;buttons.forEach((b,i)=>{const selected=categories[i][0]===key;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});track.setAttribute('aria-labelledby','tg456-lottery-'+key);track.scrollLeft=0;render();}

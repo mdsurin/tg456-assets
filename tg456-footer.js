@@ -133,7 +133,7 @@
         track.replaceChildren(...matches.map(item => card(item, demo)));
         if (!matches.length) empty(demo ? 'ไม่มีรายการตัวอย่างในหมวดนี้' : 'ไม่มีรายการแข่งขันในหมวดนี้');
         lastSuccess = demo ? Date.now() : Date.parse(payload.updatedAt);
-        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : 'ข้อมูลจาก API-SPORTS • อัปเดต ' + formatDate.format(new Date(lastSuccess)) + ' ' + formatTime.format(new Date(lastSuccess)) + ' น. • รอบข้อมูลประมาณ 30 นาที' + (Date.now() - lastSuccess > 90 * 60000 ? ' • ข้อมูลล่าช้า' : '');
+        status.textContent = demo ? 'โหมดตัวอย่าง • ระบบจริงจะตรวจอัปเดตทุก 5 นาทีขณะเปิดหน้านี้' : (Date.now() - lastSuccess > 90 * 60000 ? 'ข้อมูลล่าช้า' : '');
       } catch (error) {
         if (request !== sequence || destroyed) return;
         if (!lastSuccess) empty('ยังโหลดข้อมูลไม่ได้ กรุณาลองใหม่ภายหลัง');

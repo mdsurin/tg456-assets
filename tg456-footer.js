@@ -195,3 +195,54 @@ TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://ra
 (function(){function fix(){document.querySelectorAll('.game-item .game-stats').forEach(function(gs){var rows=gs.querySelectorAll('.row');if(rows.length<2)return;var last=rows[rows.length-1];if(last.dataset.jpFixed)return;last.dataset.jpFixed='1';last.classList.add('jp-row');var lbl=last.querySelector('.lbl');if(lbl)lbl.textContent='JACKPOT';});}fix();setInterval(fix,1500);})();
 /* promo-slider */
 (function(){var SLIDES=[{img:'https://cdn.jsdelivr.net/gh/mdsurin/tg456-assets@main/IMG_4357.JPG',alt:'สมาชิกใหม่ รับโบนัส 20%'},{img:'https://cdn.jsdelivr.net/gh/mdsurin/tg456-assets@main/IMG_4358.JPG',alt:'แนะนำเพื่อน รับ 1.3%'},{img:'https://cdn.jsdelivr.net/gh/mdsurin/tg456-assets@main/IMG_4359.JPG',alt:'คืนยอดเสีย 5%'},{img:'https://cdn.jsdelivr.net/gh/mdsurin/tg456-assets@main/IMG_4361.JPG',alt:'หีบสมบัติพารวย'},{img:'https://cdn.jsdelivr.net/gh/mdsurin/tg456-assets@main/IMG_4362.JPG',alt:'ฉลองวันเกิด'}];var idx=0;var timer=null;function bld(){var p=location.pathname;if(p!=='/'&&p!=='')return;var w=document.querySelector('.promo-slider-widget');if(w)return;var host=document.querySelector('.new-game-block')||document.querySelector('.member__games_entrance')||document.querySelector('.game-type-block')||document.querySelector('.main-content');if(!host){setTimeout(bld,1000);return;}w=document.createElement('div');w.className='promo-slider-widget';var slidesHtml='';SLIDES.forEach(function(s,i){slidesHtml+='<div class="ps-slide'+(i===0?' active':'')+'" data-i="'+i+'"><div class="ps-shine"></div><img src="'+s.img+'" alt="'+s.alt+'" loading="lazy"/></div>';});var dotsHtml='<div class="ps-dots">';SLIDES.forEach(function(s,i){dotsHtml+='<span class="ps-dot'+(i===0?' active':'')+'" data-i="'+i+'"></span>';});dotsHtml+='</div>';w.innerHTML='<div class="ps-wrap"><div class="ps-badge">🔥 โปรโมชั่นพิเศษ</div><div class="ps-track">'+slidesHtml+'</div><button class="ps-nav ps-prev" aria-label="ก่อนหน้า">‹</button><button class="ps-nav ps-next" aria-label="ถัดไป">›</button>'+dotsHtml+'</div>';host.parentNode.insertBefore(w,host);function go(i){idx=(i+SLIDES.length)%SLIDES.length;w.querySelectorAll('.ps-slide').forEach(function(s,j){s.classList.toggle('active',j===idx);});w.querySelectorAll('.ps-dot').forEach(function(d,j){d.classList.toggle('active',j===idx);});}function play(){stop();timer=setInterval(function(){go(idx+1);},4500);}function stop(){if(timer){clearInterval(timer);timer=null;}}w.querySelector('.ps-prev').addEventListener('click',function(){go(idx-1);play();});w.querySelector('.ps-next').addEventListener('click',function(){go(idx+1);play();});w.querySelectorAll('.ps-dot').forEach(function(d,i){d.addEventListener('click',function(){go(i);play();});});w.addEventListener('mouseenter',stop);w.addEventListener('mouseleave',play);var sx=0;w.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;stop();});w.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(dx>40)go(idx-1);else if(dx<-40)go(idx+1);play();});play();}setTimeout(bld,2500);setInterval(function(){if(location.pathname==='/'&&!document.querySelector('.promo-slider-widget'))bld();},4000);})();
+/* TG456 live lottery report */
+(function(){
+ 'use strict';
+ if(location.pathname!=='/'&&location.pathname!=='')return;
+ const categories=[['thai','หวยไทย'],['lao','หวยลาว'],['hanoi','หวยฮานอย'],['foreign','หวยต่างประเทศ'],['stock','หวยหุ้น']];
+ const formatter=new Intl.DateTimeFormat('th-TH',{timeZone:'Asia/Bangkok',day:'numeric',month:'short',year:'numeric'});
+ function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=String(text);return n;}
+ function dateText(v){return /^\d{4}-\d{2}-\d{2}$/.test(v||'')?formatter.format(new Date(v+'T12:00:00+07:00')):'ไม่ระบุงวด';}
+ let attempts=0;
+ function install(){
+  if(document.getElementById('tg456-lottery'))return;
+  const sport=document.getElementById('tg456-sports');
+  if(!sport){if(++attempts<60)setTimeout(install,500);return;}
+  const root=el('section','lot-widget tg-sports');root.id='tg456-lottery';
+  const old=document.querySelector('.lot-widget');if(old)old.remove();
+  sport.parentNode.insertBefore(root,sport.nextSibling);
+  const style=el('style');style.textContent=`#tg456-lottery.tg-sports{color:#f8f5ff;background:#0a0416;border:1px solid #422160;border-radius:24px;padding:28px;font-family:Tahoma,Arial,sans-serif;box-sizing:border-box;max-width:1440px;margin:24px auto;width:auto}#tg456-lottery .tg-lotto-body{padding:20px;display:grid;gap:12px;min-height:180px}#tg456-lottery .tg-lotto-row{display:flex;align-items:center;justify-content:space-between;gap:16px;border-radius:12px;background:#27133f;padding:12px 14px;font-size:14px}#tg456-lottery .tg-lotto-row strong{color:#edb8ff;font-size:23px;letter-spacing:2px;text-align:right;overflow-wrap:anywhere}#tg456-lottery .tg-lotto-row:first-child strong{font-size:30px}#tg456-lottery .tg-lotto-wait{align-self:center;text-align:center;color:#ccbfdf;padding:24px;font-size:16px}#tg456-lottery .tg-lotto-note{color:#c1b2d5;font-size:12px;margin:14px 0 0;line-height:1.7}#tg456-lottery .tg-lotto-note a{color:#d8b4fe}@media(max-width:600px){#tg456-lottery.tg-sports{padding:18px 12px;border-radius:18px;margin:14px 0}#tg456-lottery .tg-lotto-body{padding:14px}#tg456-lottery .tg-lotto-row strong{font-size:20px}#tg456-lottery .tg-lotto-row:first-child strong{font-size:25px}}`;
+  document.head.append(style);
+  const header=el('header'),titles=el('div');titles.append(el('h2','','ผลหวย'),el('p','tg-sports-subtitle','ผลรางวัลตามงวด • เวลาไทย (UTC+7)'));
+  const controls=el('div','tg-sports-controls'),track=el('div','tg-sports-track');track.id='tg456-lottery-panel';track.setAttribute('role','tabpanel');track.tabIndex=0;
+  [-1,1].forEach(d=>{const b=el('button','tg-sports-arrow',d<0?'‹':'›');b.type='button';b.setAttribute('aria-label',d<0?'เลื่อนผลหวยซ้าย':'เลื่อนผลหวยขวา');b.addEventListener('click',()=>track.scrollBy({left:d*track.clientWidth*.9,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));controls.append(b);});
+  header.append(titles,controls);const tabs=el('div','tg-sports-tabs');tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','ประเภทหวย');
+  const status=el('p','tg-sports-status');status.setAttribute('role','status');
+  const note=el('p','tg-lotto-note','แหล่งข้อมูล: '),link=el('a','','ThaiLottoAPI');link.href='https://www.thailottoapi.com/docs';link.target='_blank';link.rel='noopener noreferrer';note.append(link);
+  root.append(header,tabs,track,status,note);
+  let active='thai',feed=null,timer,controller;
+  function card(x){
+   const c=el('article','tg-sports-card'),h=el('div','tg-sports-card-head'),time=el('time','','งวด '+dateText(x.drawDate));time.dateTime=x.drawDate;
+   h.append(el('span','tg-sports-league',x.name),time,el('span','tg-sports-badge',({success:'ออกแล้ว',pending:'รอผล',closed:'ไม่มีงวด',unavailable:'รอข้อมูล'})[x.status]||'รอข้อมูล'));
+   const body=el('div','tg-lotto-body');
+   if(x.status==='success'&&Array.isArray(x.rows)&&x.rows.length){x.rows.slice(0,6).forEach(r=>{const row=el('div','tg-lotto-row');row.append(el('span','',r.label),el('strong','',r.value));body.append(row);});}
+   else body.append(el('div','tg-lotto-wait',x.status==='closed'?'ไม่มีผลสำหรับงวดนี้':x.status==='pending'?'รอประกาศผลรางวัล':'ยังไม่มีข้อมูลผลรางวัล'));
+   c.append(h,body);return c;
+  }
+  function render(){
+   const items=feed?.groups?.[active]||[];track.replaceChildren(...items.map(card));
+   if(!items.length)track.append(el('div','tg-sports-empty',feed?'ยังไม่มีข้อมูลในหมวดนี้':'กำลังโหลดผลหวย…'));
+   status.textContent=feed?.error||feed&&Date.now()-Date.parse(feed.updatedAt)>30*60000?'ข้อมูลอาจล่าช้า • กำลังแสดงผลตามวันที่งวดบนการ์ด':'';
+  }
+  const buttons=categories.map(([key,label],i)=>{const b=el('button','tg-sports-tab',label);b.type='button';b.id='tg456-lottery-'+key;b.setAttribute('role','tab');b.setAttribute('aria-controls',track.id);b.addEventListener('click',()=>select(key));b.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight')next=(i+1)%categories.length;if(e.key==='ArrowLeft')next=(i+categories.length-1)%categories.length;if(e.key==='Home')next=0;if(e.key==='End')next=categories.length-1;if(next!==undefined){e.preventDefault();buttons[next].focus();select(categories[next][0]);}});tabs.append(b);return b;});
+  function select(key){active=key;buttons.forEach((b,i)=>{const selected=categories[i][0]===key;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});track.setAttribute('aria-labelledby','tg456-lottery-'+key);track.scrollLeft=0;render();}
+  async function load(){
+   clearTimeout(timer);if(controller)controller.abort();controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),15000);track.setAttribute('aria-busy','true');
+   try{const r=await fetch('https://raw.githubusercontent.com/mdsurin/tg456-assets/main/data/lottery.json?v='+Math.floor(Date.now()/60000),{signal:controller.signal,credentials:'omit',cache:'no-store'});if(!r.ok)throw Error('Unavailable');const d=await r.json();if(!d.groups||!Number.isFinite(Date.parse(d.updatedAt)))throw Error('Invalid feed');feed=d;render();}
+   catch{if(!feed){track.replaceChildren(el('div','tg-sports-empty','ยังโหลดผลหวยไม่ได้ กรุณาลองใหม่ภายหลัง'));}status.textContent=feed?'เชื่อมต่อขัดข้อง • กำลังแสดงผลเดิมตามวันที่งวด':'ระบบจะลองโหลดผลหวยใหม่อัตโนมัติ';}
+   finally{clearTimeout(timeout);track.setAttribute('aria-busy','false');if(!document.hidden)timer=setTimeout(load,60000);}
+  }
+  document.addEventListener('visibilitychange',()=>{clearTimeout(timer);if(!document.hidden)load();});select(active);load();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+})();

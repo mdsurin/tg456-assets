@@ -21,13 +21,17 @@ jobs:
         env:
           APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
         run: node update-sports.mjs
+      - name: Fetch shared lottery feed
+        if: always()
+        run: node update-lottery.mjs
       - name: Save feed and quota ledger
         if: always()
         run: |
-          if [ ! -f data/sports.json ]; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/sports.json
+          for feed in data/sports.json data/lottery.json; do
+            if [ -f "$feed" ]; then git add "$feed"; fi
+          done
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Refresh sports data'
           git push

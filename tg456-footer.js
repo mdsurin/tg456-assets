@@ -181,7 +181,7 @@ TG456Sports.mount(document.getElementById('tg456-sports'), {endpoint:'https://ra
 (function(){
  'use strict';
  if(location.pathname!=='/'&&location.pathname!=='')return;
- const examples=[['kbank','กสิกรไทย','001',3210],['scb','ไทยพาณิชย์','002',8450],['ktb','กรุงไทย','003',12600],['bbl','กรุงเทพ','004',5400],['bay','กรุงศรี','005',18750],['gsb','ออมสิน','006',6200],['baac','ธ.ก.ส.','007',9800],['kbank','กสิกรไทย','008',4300]];
+ const examples=[['kbank','กสิกรไทย','001',3210],['scb','ไทยพาณิชย์','002',8450],['ktb','กรุงไทย','003',12600],['bbl','กรุงเทพ','004',5400],['bay','กรุงศรี','005',18750],['gsb','ออมสิน','006',6200],['baac','ธ.ก.ส.','007',9800],['true','ทรูมันนี่','008',4300]];
  function el(tag,cls,text){const n=document.createElement(tag);n.className=cls;if(text!==undefined)n.textContent=text;return n;}
  let attempts=0;
  function install(){

@@ -64,7 +64,7 @@
     });
     element.append(head, teams, odds);
     const quoteTime = validDate(item.oddsUpdatedAt);
-    element.append(node('p', 'tg-sports-status', item.selections?.length ? 'ราคาผู้ชนะก่อนแข่ง • ' + (item.oddsSource || '') + (quoteTime ? ' • ' + formatDate.format(quoteTime) + ' ' + formatTime.format(quoteTime) + ' น.' : '') : 'ยังไม่มีราคาสำหรับคู่นี้'));
+    element.append(node('p', 'tg-sports-status', item.selections?.length ? 'ราคาผู้ชนะก่อนแข่ง • ' + (item.oddsSource || '') + (quoteTime ? ' • ' + formatDate.format(quoteTime) + ' ' + formatTime.format(quoteTime) + ' น.' : '') : 'ล็อคอินเพื่อดูราคาพิเศษ'));
     return element;
   }
   function mount(root, config) {
